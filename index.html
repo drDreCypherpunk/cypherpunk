@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cypherpunk — privacy-first Web3</title>
+<meta name="description" content="Cypherpunk is a privacy-first crypto/Web3 community and toolset — building the tools we'd want to use ourselves.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="dot">$</span> cypherpunk</div>
+      <nav>
+        <a href="#what">What</a>
+        <a href="#why">Why</a>
+        <a href="#join">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Building in public — early access open</p>
+      <h1>Privacy shouldn't be the feature you add last.</h1>
+      <p class="lede">Cypherpunk is a small, early community building privacy-first tools for crypto/Web3 — out in the open, with the people who show up first shaping what gets built.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#join" data-discord-cta>Join the Discord</a>
+        <a class="btn btn-ghost" href="#what">See what we're building</a>
+      </div>
+    </section>
+
+    <section id="what" class="block">
+      <p class="section-eyebrow">§1 — what's live</p>
+      <h2>What we're actually building</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-tag">Live</div>
+          <h3>Build log</h3>
+          <p>Real weekly progress updates — what shipped, what broke, what's next. No roadmap theater.</p>
+        </div>
+        <div class="card">
+          <div class="card-tag">In progress</div>
+          <h3>Privacy-first tooling</h3>
+          <p>The core product is still taking shape with the community's input, not decided in a vacuum before anyone joined.</p>
+        </div>
+        <div class="card">
+          <div class="card-tag">Open</div>
+          <h3>Early-access roles</h3>
+          <p>First members get a say in the roadmap and first look at anything we drop — not just a badge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="block block-alt">
+      <p class="section-eyebrow">§2 — why this exists</p>
+      <h2>Most "privacy" in Web3 is a toggle, not a foundation</h2>
+      <p class="prose">The name "cypherpunk" used to be a promise — that the tools you build put the person using them back in control. Somewhere along the way, most of Web3 stopped asking that question and started asking a different one: how fast can this grow. We're asking the first question again, with a small group of people who actually care about the answer.</p>
+    </section>
+
+    <section id="join" class="block">
+      <p class="section-eyebrow">§3 — join the first wave</p>
+      <h2>No token gate. No wallet connect. Just the room.</h2>
+      <p class="prose">We're keeping the first wave small on purpose. Join the Discord directly, or leave your email and we'll reach out when the next wave opens.</p>
+
+      <div class="join-row">
+        <a class="btn btn-primary btn-lg" href="https://discord.gg/REPLACE_WITH_INVITE" data-discord-cta>Join the Discord →</a>
+      </div>
+
+      <form id="waitlist-form" class="waitlist-form" novalidate>
+        <label for="email">Or leave your email — no spam, one note when we open the next wave</label>
+        <div class="waitlist-row">
+          <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+          <button type="submit" class="btn btn-ghost">Notify me</button>
+        </div>
+        <p id="waitlist-status" class="waitlist-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <span>Cypherpunk — building in public.</span>
+    <a href="https://discord.gg/REPLACE_WITH_INVITE">Discord</a>
+    <a href="https://x.com/REPLACE_WITH_HANDLE">X</a>
+  </footer>
+
+  <script src="support.js"></script>
+</body>
+</html>
