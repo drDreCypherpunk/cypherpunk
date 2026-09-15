@@ -1,0 +1,76 @@
+:root {
+  --bg: #0a0c0f;
+  --surface: #12151a;
+  --surface-2: #181c22;
+  --border: #262b33;
+  --border-strong: #3a4149;
+  --text: #e6e4df;
+  --text-dim: #8b929c;
+  --text-faint: #5b626c;
+  --accent: #e2883f;
+  --accent-soft: #4a3421;
+  --good: #5fae7e;
+  --good-soft: #1c2b22;
+  --warning: #d9a441;
+  --warning-soft: #2e2718;
+  --critical: #d9534f;
+  --critical-soft: #301c1c;
+  --font-mono: var(--jetbrains-mono), ui-monospace, "SF Mono", Consolas, monospace;
+  --font-sans: var(--plex-sans), -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
