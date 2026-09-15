@@ -1,0 +1,50 @@
+{
+  "totals": { "visits": 400000, "leads": 4000, "weeks": 24, "conversionRate": 0.01 },
+  "phases": {
+    "1": { "name": "Foundation & Seed", "weeks": [1, 8], "exitVisits": 35000, "exitLeads": 350 },
+    "2": { "name": "Momentum & Distribution", "weeks": [9, 16], "exitVisits": 137000, "exitLeads": 1370 },
+    "3": { "name": "Spike & Scale", "weeks": [17, 24], "exitVisits": 400000, "exitLeads": 4000 }
+  },
+  "weeklyRhythm": [
+    { "day": "Mon", "ships": "Build-log thread (X); Discord weekly kickoff", "pillar": "Build Log" },
+    { "day": "Tue", "ships": "Reddit value-post (rotating sub); Threads repurpose", "pillar": "Build Log" },
+    { "day": "Wed", "ships": "Substack essay publishes; one-line X link", "pillar": "Privacy 101" },
+    { "day": "Thu", "ships": "Manifesto/hot-take post; Discord community spotlight", "pillar": "Culture & Community" },
+    { "day": "Fri", "ships": "Discord quest board resets; teaser cross-platform", "pillar": "Drops & Quests" },
+    { "day": "Sat", "ships": "Light-touch UGC repost", "pillar": "Community Voices" },
+    { "day": "Sun", "ships": "Funnel numbers reviewed internally; optional AMA", "pillar": null }
+  ],
+  "pillars": {
+    "Build Log": { "channels": ["X", "Discord"], "purpose": "Real progress, screenshots. Credibility engine." },
+    "Privacy 101": { "channels": ["Substack"], "purpose": "Evergreen, educational, SEO-shaped." },
+    "Culture & Manifesto": { "channels": ["X", "Threads"], "purpose": "Opinions, hot takes, shareable." },
+    "Community Voices": { "channels": ["Discord", "Threads"], "purpose": "Member spotlights, UGC, social proof." },
+    "Drops & Quests": { "channels": ["Discord", "Reddit"], "purpose": "Scarcity mechanics, conversion engine." }
+  },
+  "weeks": [
+    { "week": 1, "phase": 1, "theme": "Server launch + seed DMs go out", "moment": "Discord live, launch-kit copy sent", "visitsTarget": 2500, "leadsTarget": 25 },
+    { "week": 2, "phase": 1, "theme": "Seed DMs continue", "moment": "First replies land, early roles assigned", "visitsTarget": 2500, "leadsTarget": 25 },
+    { "week": 3, "phase": 1, "theme": "First build-log thread", "moment": "X thread #1 — real progress, not hype", "visitsTarget": 3500, "leadsTarget": 35 },
+    { "week": 4, "phase": 1, "theme": "Build-log follow-through", "moment": "Reply to every comment on thread #1", "visitsTarget": 3500, "leadsTarget": 35 },
+    { "week": 5, "phase": 1, "theme": "Privacy 101 goes evergreen", "moment": "First Substack post published", "visitsTarget": 5000, "leadsTarget": 50 },
+    { "week": 6, "phase": 1, "theme": "Substack post promoted", "moment": "Repurposed across X, Threads, Reddit", "visitsTarget": 5000, "leadsTarget": 50 },
+    { "week": 7, "phase": 1, "theme": "Phase 1 review begins", "moment": "Quest board drafted", "visitsTarget": 6500, "leadsTarget": 65 },
+    { "week": 8, "phase": 1, "theme": "Quest board opens", "moment": "Discord quest list launches", "visitsTarget": 6500, "leadsTarget": 65 },
+    { "week": 9, "phase": 2, "theme": "Influencer outreach begins", "moment": "First micro-influencer conversations", "visitsTarget": 8500, "leadsTarget": 85 },
+    { "week": 10, "phase": 2, "theme": "First influencer collab", "moment": "Micro-influencer #1 shout goes out", "visitsTarget": 8500, "leadsTarget": 85 },
+    { "week": 11, "phase": 2, "theme": "Reddit rotation begins", "moment": "First scheduled cross-sub Reddit post", "visitsTarget": 11000, "leadsTarget": 110 },
+    { "week": 12, "phase": 2, "theme": "Reddit rotation continues", "moment": "Second sub in rotation", "visitsTarget": 11000, "leadsTarget": 110 },
+    { "week": 13, "phase": 2, "theme": "Community Voices starts", "moment": "First member spotlight thread", "visitsTarget": 14000, "leadsTarget": 140 },
+    { "week": 14, "phase": 2, "theme": "Community Voices continues", "moment": "Second spotlight + UGC repost", "visitsTarget": 14000, "leadsTarget": 140 },
+    { "week": 15, "phase": 2, "theme": "Phase 2 review begins", "moment": "Referral quest drafted", "visitsTarget": 17500, "leadsTarget": 175 },
+    { "week": 16, "phase": 2, "theme": "Referral quest opens", "moment": "Invite-a-friend quest added", "visitsTarget": 17500, "leadsTarget": 175 },
+    { "week": 17, "phase": 3, "theme": "Forcing event announced", "moment": "Event date set, countdown begins", "visitsTarget": 21500, "leadsTarget": 215 },
+    { "week": 18, "phase": 3, "theme": "Countdown teasers begin", "moment": "Teaser posted across all 5 channels", "visitsTarget": 21500, "leadsTarget": 215 },
+    { "week": 19, "phase": 3, "theme": "Countdown content ramps", "moment": "Budget boost queued for top post", "visitsTarget": 26000, "leadsTarget": 260 },
+    { "week": 20, "phase": 3, "theme": "Budget boost live", "moment": "Small budget behind best-performing post", "visitsTarget": 26000, "leadsTarget": 260 },
+    { "week": 21, "phase": 3, "theme": "Final push begins", "moment": "Heaviest cross-platform posting starts", "visitsTarget": 31500, "leadsTarget": 315 },
+    { "week": 22, "phase": 3, "theme": "Final push continues", "moment": "Cross-platform blitz, daily posting", "visitsTarget": 31500, "leadsTarget": 315 },
+    { "week": 23, "phase": 3, "theme": "Event countdown final week", "moment": "Last-call posts, urgency messaging", "visitsTarget": 52500, "leadsTarget": 525 },
+    { "week": 24, "phase": 3, "theme": "Spike week — event goes live", "moment": "Multi-sub Reddit + full-channel push", "visitsTarget": 52500, "leadsTarget": 525 }
+  ]
+}
