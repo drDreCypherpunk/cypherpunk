@@ -1,0 +1,46 @@
+{
+  "updatedAt": "2026-09-15T00:00:00Z",
+  "targets": {
+    "visits": 400000,
+    "leads": 4000
+  },
+  "actuals": {
+    "visits": 0,
+    "leads": 0
+  },
+  "phases": [
+    { "id": "phase-1", "name": "Foundation & momentum", "weeks": [1, 8], "exitTargetVisits": 35000 },
+    { "id": "phase-2", "name": "Spike & scale", "weeks": [9, 16], "exitTargetVisits": 137000 },
+    { "id": "phase-3", "name": "Forcing event", "weeks": [17, 24], "exitTargetVisits": 400000 }
+  ],
+  "weeks": [
+    { "week": 1, "title": "Server launch + seed DMs go out", "status": "in_progress" },
+    { "week": 2, "title": "Seed DMs continue", "status": "not_started" },
+    { "week": 3, "title": "First build-log thread", "status": "not_started" },
+    { "week": 4, "title": "Build-log follow-through", "status": "not_started" },
+    { "week": 5, "title": "Privacy 101 goes evergreen", "status": "not_started" },
+    { "week": 6, "title": "Substack post promoted", "status": "not_started" },
+    { "week": 7, "title": "Phase 1 review begins", "status": "not_started" },
+    { "week": 8, "title": "Quest board opens", "status": "not_started" },
+    { "week": 9, "title": "Influencer outreach begins", "status": "not_started" },
+    { "week": 10, "title": "First influencer collab", "status": "not_started" },
+    { "week": 11, "title": "Reddit rotation begins", "status": "not_started" },
+    { "week": 12, "title": "Reddit rotation continues", "status": "not_started" },
+    { "week": 13, "title": "Community Voices starts", "status": "not_started" },
+    { "week": 14, "title": "Community Voices continues", "status": "not_started" },
+    { "week": 15, "title": "Phase 2 review begins", "status": "not_started" },
+    { "week": 16, "title": "Referral quest opens", "status": "not_started" },
+    { "week": 17, "title": "Forcing event announced", "status": "not_started" },
+    { "week": 18, "title": "Countdown teasers begin", "status": "not_started" },
+    { "week": 19, "title": "Countdown content ramps", "status": "not_started" },
+    { "week": 20, "title": "Budget boost live", "status": "not_started" },
+    { "week": 21, "title": "Final push begins", "status": "not_started" },
+    { "week": 22, "title": "Final push continues", "status": "not_started" },
+    { "week": 23, "title": "Event countdown, final week", "status": "not_started" },
+    { "week": 24, "title": "Spike week — event goes live", "status": "not_started" }
+  ],
+  "waitlist": {
+    "count": 0,
+    "note": "No backend is wired up yet — the public form falls back to a mailto draft until a real capture endpoint exists. See README."
+  }
+}
