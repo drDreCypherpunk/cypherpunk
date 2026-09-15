@@ -1,242 +1,542 @@
-import WaitlistForm from "./components/WaitlistForm";
+import StatusTicker from "./components/StatusTicker";
+import BottomNav from "./components/BottomNav";
+import NewsletterForm from "./components/NewsletterForm";
 
 export const metadata = {
-  title: "CYPHERPUNK App — Bitcoin-Native. Decentralised by Design.",
+  title: "CYPHERPUNK — The Bitcoin Start-up Engine",
   description:
-    "CYPHERPUNK App is a pre-launch, Bitcoin-native privacy tool being built in the open by Cypherpunk Private Limited. Follow along and join the waitlist.",
+    "CYPHERPUNK invests in and builds the next generation of Bitcoin unicorns. A 12-week accelerator cohort: funding, technical resources, and policy access to scale.",
 };
 
-// TODO: replace with the real Discord/build-log invite link when it exists
-const BUILD_LOG_URL = "#";
+// TODO: replace these mailto fallbacks with real application/booking flows
+// (a form, Typeform, Calendly, etc.) once they exist.
+const APPLY_URL =
+  "mailto:team@cypherpunk.io?subject=" + encodeURIComponent("Founder application");
+const MEMBER_URL =
+  "mailto:team@cypherpunk.io?subject=" + encodeURIComponent("Hub membership enquiry");
+const PITCH_URL =
+  "mailto:team@cypherpunk.io?subject=" + encodeURIComponent("Venture idea pitch");
+
+const PORTFOLIO = [
+  {
+    name: "SOVRN",
+    founder: "A. Edwards",
+    tag: "Inheritance · non-custodial estate keys",
+  },
+  {
+    name: "SATPAY",
+    founder: "J. Lobos",
+    tag: "Consumer fintech · Lightning-native wallet",
+  },
+  {
+    name: "ENCLAVE",
+    founder: "A. Filini",
+    tag: "Cloud computing · sovereign compute nodes",
+  },
+];
+
+const VENTURE_IDEAS = [
+  "Bitcoin-native payroll",
+  "Self-custody for teams",
+  "Lightning point-of-sale",
+];
+
+const EVENTS = [
+  {
+    day: "02",
+    month: "FEB",
+    title: "Pitching & Raising Capital Panel",
+    where: "Cypherpunk Offices · 18:30",
+  },
+  {
+    day: "10",
+    month: "FEB",
+    title: "Building on Lightning Hackathon",
+    where: "Cypherpunk Offices · All day",
+  },
+  {
+    day: "19",
+    month: "FEB",
+    title: "Women of Bitcoin Summit",
+    where: "Cypherpunk Offices · 10:00",
+  },
+];
 
 export default function Home() {
   return (
-    <main>
-      <header className="hero">
-        <div className="wrap">
-          <p className="eyebrow">Cypherpunk Private Limited &middot; Pre-launch</p>
-          <h1>Bitcoin-Native. Decentralised by Design.</h1>
-          <p className="lede">
-            CYPHERPUNK App is a privacy tool we&rsquo;re building on Bitcoin,
-            in public, before it&rsquo;s finished. There is no live product
-            yet &mdash; no screenshots to show, no users, no metrics. What
-            exists right now is a thesis, a team, and a build log. This page
-            is where that gets tracked honestly, from before day one.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#waitlist">
-              Join the waitlist
+    <>
+      <StatusTicker />
+      <main>
+        {/* HOME */}
+        <header className="section hero" id="home">
+          <div className="wrap">
+            <p className="eyebrow">/// Welcome to Cypherpunk</p>
+            <h1 className="display">
+              The Bitcoin
+              <br />
+              Start-up Engine
+            </h1>
+            <p className="lede">
+              We invest in and build the next generation of Bitcoin unicorns.
+            </p>
+            <a className="btn btn-primary" href={APPLY_URL}>
+              Apply as founder <span aria-hidden="true">&rarr;</span>
             </a>
-            <a className="btn btn-ghost" href="#follow">
-              Follow the build
-            </a>
-          </div>
-        </div>
-      </header>
 
-      <section className="section" aria-labelledby="why-heading">
-        <div className="wrap">
-          <p className="eyebrow">Why this exists</p>
-          <h2 id="why-heading">Privacy and decentralisation aren&rsquo;t features. They&rsquo;re the point.</h2>
-          <div className="prose">
-            <p>
-              Cypherpunk Private Limited is a Bitcoin-native company building
-              hardware, software, protocols and networks for a decentralised
-              future. That work isn&rsquo;t confined to one industry &mdash;
-              it applies across AI &amp; data, healthcare, biotech, land,
-              water, energy, agriculture, mining, space tech and digital
-              infrastructure, wherever centralised control creates fragile
-              single points of failure.
-            </p>
-            <p>
-              CYPHERPUNK App is the first product to come out of that work.
-              It exists because most of the tools people rely on today quietly
-              assume you&rsquo;ll trust a company, a server, or a third party
-              with something you shouldn&rsquo;t have to hand over. We think
-              that assumption is worth challenging, and Bitcoin &mdash; open,
-              permissionless, verifiable &mdash; is the base layer to build
-              that alternative on.
-            </p>
-            <p>
-              We&rsquo;re building this in the open, before it&rsquo;s done,
-              because a privacy tool built by two founders behind closed doors
-              is a lot to ask people to trust blind. Showing the work as it
-              happens is part of earning that trust, not a marketing tactic
-              layered on top of it.
+            <div className="backed-by">
+              <p className="tag">Backed by</p>
+              <div className="backed-by-row">
+                <span className="pill">Fulgur Ventures</span>
+                <span className="pill">Initial Capital</span>
+              </div>
+            </div>
+
+            <p className="prose">
+              We help you do in{" "}
+              <strong className="accent-text">12 weeks</strong> what usually
+              takes a year &mdash; funding, technical resources, and
+              high-level policy access to scale.
             </p>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <section className="section" id="follow" aria-labelledby="follow-heading">
-        <div className="wrap">
-          <p className="eyebrow">Follow along</p>
-          <h2 id="follow-heading">Watch it get built, in real time.</h2>
-          <p className="prose-lead">
-            The build log &mdash; decisions, dead ends, and progress as it
-            actually happens &mdash; lives in our Discord. No polish, no
-            pretending things are further along than they are.
-          </p>
-          <a className="btn btn-primary" href={BUILD_LOG_URL}>
-            {/* TODO: point this at the real Discord invite once one exists */}
-            Join the build-log Discord
-          </a>
-        </div>
-      </section>
+        <section className="section" aria-labelledby="companies-teaser-heading">
+          <div className="wrap">
+            <div className="row-head">
+              <p className="tag">02 /// Our companies</p>
+              <a className="link-small" href="#portfolio">
+                View all &rarr;
+              </a>
+            </div>
+            <h2 id="companies-teaser-heading" className="visually-hidden">
+              Our companies
+            </h2>
+            {PORTFOLIO.filter((c) => c.name !== "SOVRN").map((c) => (
+              <div className="company-row" key={c.name}>
+                <div>
+                  <p className="company-name">{c.name}</p>
+                  <p className="company-tag-small">{c.tag.split("·")[0].trim()}</p>
+                </div>
+                <span aria-hidden="true" className="arrow-icon">
+                  &#8599;
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section className="section section-waitlist" id="waitlist" aria-labelledby="waitlist-heading">
-        <div className="wrap">
-          <p className="eyebrow">Get notified</p>
-          <h2 id="waitlist-heading">Join the waitlist</h2>
-          <p className="prose-lead">
-            Leave your email and we&rsquo;ll let you know as the product
-            takes shape and when there&rsquo;s something real to try. No
-            spam, no token, no hype cycle &mdash; just build-log updates and
-            an early invite when it&rsquo;s ready.
-          </p>
-          <WaitlistForm />
-        </div>
-      </section>
+        <section className="section" aria-labelledby="hub-teaser-heading">
+          <div className="wrap">
+            <div className="card card-feature">
+              <p className="tag">The Hub</p>
+              <h2 id="hub-teaser-heading">The Right Room</h2>
+              <p className="prose">
+                Where Bitcoin&rsquo;s builders, investors, media and
+                policymakers cross paths.
+              </p>
+              <a className="link-small" href="#hub">
+                Learn more <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </section>
 
-      <footer className="footer">
-        <div className="wrap">
-          <p className="footer-name">Cypherpunk Private Limited</p>
-          <p className="footer-tagline">Bitcoin-Native. Decentralised by Design.</p>
-        </div>
-      </footer>
+        <section className="section" aria-labelledby="newsletter-heading">
+          <div className="wrap">
+            <p className="tag">Newsletter</p>
+            <h2 id="newsletter-heading" className="newsletter-heading">
+              Latest news, events and research from CYPHERPUNK.
+            </h2>
+            <NewsletterForm />
+          </div>
+        </section>
+
+        {/* ACCELERATOR */}
+        <section className="section" id="accelerator" aria-labelledby="accel-heading">
+          <div className="wrap">
+            <p className="tag">01 /// Accelerator</p>
+            <h2 id="accel-heading" className="display-small">
+              12 Weeks to a Year
+            </h2>
+            <p className="prose lede-small">
+              Everything an early-stage Bitcoin startup needs to scale
+              &mdash; compressed into one cohort.
+            </p>
+
+            <div className="feature-cards">
+              <div className="card">
+                <p className="card-index">01</p>
+                <h3>Funding</h3>
+                <p className="prose">
+                  Pre-seed cheque plus intros to Bitcoin-native funds and
+                  angels.
+                </p>
+              </div>
+              <div className="card">
+                <p className="card-index">02</p>
+                <h3>Technical Resources</h3>
+                <p className="prose">
+                  Lightning, Liquid and signing infra, plus protocol
+                  engineers on call.
+                </p>
+              </div>
+              <div className="card">
+                <p className="card-index">03</p>
+                <h3>Policy Access</h3>
+                <p className="prose">
+                  High-level access to regulators and the people shaping
+                  Bitcoin policy.
+                </p>
+              </div>
+            </div>
+
+            <p className="tag timeline-label">The 12 weeks</p>
+            <div className="timeline">
+              <div className="timeline-row">
+                <span className="timeline-week">W 1&ndash;3</span>
+                <span>Build &amp; validate</span>
+              </div>
+              <div className="timeline-row">
+                <span className="timeline-week">W 4&ndash;8</span>
+                <span>Ship to first users</span>
+              </div>
+              <div className="timeline-row">
+                <span className="timeline-week">W 9&ndash;11</span>
+                <span>Raise the round</span>
+              </div>
+              <div className="timeline-row">
+                <span className="timeline-week">W 12</span>
+                <span>Demo day</span>
+              </div>
+            </div>
+
+            <a className="btn btn-primary" href={APPLY_URL}>
+              Apply as founder <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        {/* PORTFOLIO / CoS */}
+        <section className="section" id="portfolio" aria-labelledby="portfolio-heading">
+          <div className="wrap">
+            <p className="tag">02 /// Our companies</p>
+            <h2 id="portfolio-heading" className="display-small">
+              Portfolio
+            </h2>
+
+            {PORTFOLIO.map((c) => (
+              <div className="card company-card" key={c.name}>
+                <div className="img-placeholder">
+                  <span className="img-placeholder-label">
+                    [ IMG &middot; {c.name} ]
+                  </span>
+                </div>
+                <div className="company-card-body">
+                  <div>
+                    <h3>{c.name}</h3>
+                    <p className="company-tag">{c.tag}</p>
+                  </div>
+                  <p className="company-founder">
+                    Founder &middot; {c.founder}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+            <div className="venture-ideas">
+              <p className="tag">Venture ideas</p>
+              <p className="prose">
+                Open problems we&rsquo;ll fund a founder to build.
+              </p>
+              <ul className="idea-list">
+                {VENTURE_IDEAS.map((idea) => (
+                  <li key={idea}>
+                    <span>{idea}</span>
+                    <span className="idea-open">Open</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a className="btn btn-ghost" href={PITCH_URL}>
+              Pitch an idea <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        {/* HUB */}
+        <section className="section" id="hub" aria-labelledby="hub-heading">
+          <div className="wrap">
+            <p className="tag">03 /// The Hub</p>
+            <h2 id="hub-heading" className="display-small">
+              The Right Room
+            </h2>
+            <p className="prose lede-small">
+              Where Bitcoin&rsquo;s builders, investors, media and
+              policymakers cross paths. The community is the product.
+            </p>
+
+            <div className="img-placeholder img-placeholder-tall">
+              <span className="img-placeholder-label">
+                [ IMG &middot; the co-working floor ]
+              </span>
+            </div>
+
+            <div className="amenities-grid">
+              <span>Coffee &amp; tea</span>
+              <span>Fast internet</span>
+              <span>Conference rooms</span>
+              <span>Key card access</span>
+              <span>24/7 security</span>
+              <span>Community events</span>
+            </div>
+
+            <div className="card meeting-rooms-card">
+              <div className="row-head">
+                <h3>Meeting rooms</h3>
+                <span className="bookable-badge">
+                  <span className="status-dot-small" aria-hidden="true" />
+                  Bookable
+                </span>
+              </div>
+              <p className="prose">
+                Reserve by the hour, paid in sats. Key-card entry, 24/7.
+              </p>
+            </div>
+
+            <a className="btn btn-primary" href={MEMBER_URL}>
+              Become a member <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        {/* EVENTS */}
+        <section className="section" id="events" aria-labelledby="events-heading">
+          <div className="wrap">
+            <p className="tag">04 /// Events</p>
+            <h2 id="events-heading" className="display-small">
+              Gather with the Vanguard
+            </h2>
+            <p className="prose lede-small">
+              Deep-dives, hackathons and demo days with the brightest minds
+              in Bitcoin.
+            </p>
+
+            <p className="tag timeline-label">February</p>
+            <div className="events-list">
+              {EVENTS.map((e) => (
+                <div className="event-row" key={e.title}>
+                  <div className="event-date">
+                    <span className="event-day">{e.day}</span>
+                    <span className="event-month">{e.month}</span>
+                  </div>
+                  <div>
+                    <p className="event-title">{e.title}</p>
+                    <p className="event-where">{e.where}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a className="btn btn-ghost" href="#events">
+              Upcoming events <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        <footer className="site-footer">
+          <div className="wrap">
+            <address>
+              51-53 Hatton Garden
+              <br />
+              London EC1N 8HN
+              <br />
+              <a href="mailto:team@cypherpunk.io">team@cypherpunk.io</a>
+            </address>
+            <div className="social-row">
+              {/* TODO: swap these placeholders for real profile URLs */}
+              <a className="pill pill-small" href="#">
+                X
+              </a>
+              <a className="pill pill-small" href="#">
+                LinkedIn
+              </a>
+              <a className="pill pill-small" href="#">
+                Substack
+              </a>
+              <a className="pill pill-small" href="#">
+                TG
+              </a>
+            </div>
+            <p className="copyright">&copy; 2026 Cypherpunk</p>
+          </div>
+        </footer>
+      </main>
+      <BottomNav />
 
       <style>{`
-        .hero {
-          padding: 96px 0 64px;
-          border-bottom: 1px solid var(--border);
+        .hero { padding-top: 40px; }
+        .display {
+          font-size: clamp(34px, 7vw, 48px);
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.06;
+          text-transform: uppercase;
+          margin: 14px 0 0;
         }
-
-        .hero h1 {
-          font-size: clamp(28px, 6vw, 44px);
-          margin-top: 14px;
-          line-height: 1.15;
+        .display-small {
+          font-size: clamp(26px, 5vw, 32px);
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          margin: 8px 0 0;
         }
-
         .lede {
-          margin-top: 20px;
-          max-width: 640px;
           font-size: 17px;
           color: var(--text-dim);
+          margin: 20px 0 26px;
+          max-width: 42ch;
         }
+        .lede-small {
+          margin: 10px 0 28px;
+          max-width: 48ch;
+        }
+        .prose { color: var(--text-dim); margin: 0; }
+        .prose + .prose { margin-top: 12px; }
+        .accent-text { color: var(--accent); font-weight: 700; }
 
-        .hero-actions {
-          margin-top: 32px;
+        .backed-by { margin-top: 32px; }
+        .backed-by-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+        .row-head {
           display: flex;
+          align-items: baseline;
+          justify-content: space-between;
           gap: 12px;
-          flex-wrap: wrap;
         }
-
-        .btn {
-          display: inline-block;
+        .link-small {
           font-family: var(--font-mono);
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.02em;
-          padding: 12px 20px;
-          border-radius: 4px;
+          font-size: 12.5px;
+          color: var(--accent);
           text-decoration: none;
-          border: 1px solid transparent;
+          white-space: nowrap;
         }
+        .link-small:hover { text-decoration: underline; }
 
-        .btn-primary {
-          background: var(--accent);
-          color: var(--bg);
-          border-color: var(--accent);
+        .company-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 0;
+          border-top: 1px solid var(--border);
         }
+        .company-name { font-size: 20px; font-weight: 700; margin: 0; }
+        .company-tag-small { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-mono); color: var(--text-faint); margin: 6px 0 0; }
+        .arrow-icon { color: var(--accent); font-size: 18px; }
 
-        .btn-primary:hover {
-          filter: brightness(1.08);
+        .card-feature { border-color: var(--accent); background: var(--accent-soft); }
+        .card-feature h2 { margin: 8px 0 10px; font-size: 22px; }
+
+        .newsletter-heading { font-size: 18px; font-weight: 600; margin: 6px 0 0; max-width: 40ch; }
+
+        .feature-cards { display: flex; flex-direction: column; gap: 12px; margin: 24px 0 32px; }
+        .card-index { font-family: var(--font-mono); color: var(--accent); font-size: 13px; margin: 0 0 8px; }
+        .feature-cards h3 { font-size: 18px; margin: 0 0 8px; }
+
+        .timeline-label { margin-bottom: 4px; }
+        .timeline { border-top: 1px solid var(--border); margin-bottom: 28px; }
+        .timeline-row {
+          display: flex;
+          gap: 16px;
+          padding: 14px 0;
+          border-bottom: 1px solid var(--border);
+          font-size: 15px;
         }
+        .timeline-week { font-family: var(--font-mono); color: var(--accent); min-width: 68px; }
 
-        .btn-ghost {
-          background: transparent;
-          color: var(--text);
-          border-color: var(--border-strong);
+        .company-card { padding: 0; overflow: hidden; }
+        .company-card .img-placeholder { margin: 0; border-radius: 0; border: none; border-bottom: 1px solid var(--border); }
+        .company-card-body { padding: 16px 20px 20px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+        .company-card-body h3 { font-size: 19px; margin: 0 0 6px; }
+        .company-tag { font-size: 13px; color: var(--text-faint); margin: 0; }
+        .company-founder { font-family: var(--font-mono); font-size: 11.5px; color: var(--accent); white-space: nowrap; margin: 0; }
+
+        .venture-ideas { margin: 32px 0 20px; }
+        .venture-ideas .prose { margin-top: 6px; }
+        .idea-list { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--border); }
+        .idea-list li {
+          display: flex;
+          justify-content: space-between;
+          padding: 14px 0;
+          border-bottom: 1px solid var(--border);
+          font-size: 15px;
         }
-
-        .btn-ghost:hover {
-          border-color: var(--accent);
+        .idea-open {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
           color: var(--accent);
         }
 
-        .section {
-          padding: 64px 0;
+        .img-placeholder-tall { aspect-ratio: 16 / 11; }
+
+        .amenities-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px 20px;
+          padding: 20px 0;
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          font-size: 14.5px;
+          margin-bottom: 24px;
+        }
+
+        .meeting-rooms-card { margin-bottom: 28px; }
+        .meeting-rooms-card h3 { font-size: 17px; }
+        .meeting-rooms-card .prose { margin-top: 8px; }
+        .bookable-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-mono);
+          font-size: 11px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: var(--good);
+          white-space: nowrap;
+        }
+        .status-dot-small { width: 6px; height: 6px; border-radius: 50%; background: var(--good); }
+
+        .events-list { border-top: 1px solid var(--border); margin-bottom: 28px; }
+        .event-row {
+          display: flex;
+          gap: 18px;
+          padding: 16px 0;
           border-bottom: 1px solid var(--border);
         }
+        .event-date { text-align: center; min-width: 40px; }
+        .event-day { display: block; font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1; }
+        .event-month { display: block; font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); margin-top: 2px; }
+        .event-title { font-size: 15.5px; font-weight: 600; margin: 0 0 4px; }
+        .event-where { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin: 0; }
 
-        .section h2 {
-          font-size: clamp(22px, 4vw, 30px);
-          margin-top: 10px;
-          max-width: 640px;
-        }
+        .site-footer { border-top: 1px solid var(--border); padding: 40px 0 32px; }
+        address { font-style: normal; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+        address a { color: var(--accent); }
+        .social-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
+        .pill-small { padding: 6px 12px; font-size: 12px; text-decoration: none; }
+        .pill-small:hover { border-color: var(--accent); color: var(--accent); }
+        .copyright { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); margin: 0; }
 
-        .prose {
-          margin-top: 24px;
-          max-width: 640px;
-        }
-
-        .prose p {
-          color: var(--text-dim);
-          margin: 0 0 16px;
-        }
-
-        .prose p:last-child {
-          margin-bottom: 0;
-        }
-
-        .prose-lead {
-          margin-top: 16px;
-          max-width: 560px;
-          color: var(--text-dim);
-        }
-
-        .section-waitlist {
-          border-bottom: none;
-          background: var(--surface);
-        }
-
-        .footer {
-          padding: 40px 0 calc(40px + env(safe-area-inset-bottom, 0px));
-        }
-
-        .footer-name {
-          font-family: var(--font-mono);
-          font-size: 13px;
-          color: var(--text);
-          margin: 0;
-        }
-
-        .footer-tagline {
-          font-family: var(--font-mono);
-          font-size: 12px;
-          color: var(--text-faint);
-          margin: 6px 0 0;
+        .visually-hidden {
+          position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+          overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
         }
 
         @media (max-width: 480px) {
-          .hero {
-            padding: 64px 0 48px;
-          }
-
-          .section {
-            padding: 48px 0;
-          }
-
-          .hero-actions {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .btn {
-            text-align: center;
-          }
+          .amenities-grid { grid-template-columns: 1fr; }
         }
       `}</style>
-    </main>
+    </>
   );
 }

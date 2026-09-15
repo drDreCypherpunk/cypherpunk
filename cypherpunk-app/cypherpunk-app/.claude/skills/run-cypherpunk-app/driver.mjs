@@ -87,20 +87,20 @@ function cmdStop(port = 4173) {
 // (or don't set it) to let Playwright use its own managed browser normally.
 const PW_CHROMIUM_PATH = process.env.PW_CHROMIUM_PATH || '/opt/pw-browsers/chromium';
 
-async function withBrowser(fn) {
+async function withBrowser(fn, viewport = { width: 1280, height: 900 }) {
   const launchOpts = { headless: true };
   if (fs.existsSync(PW_CHROMIUM_PATH)) launchOpts.executablePath = PW_CHROMIUM_PATH;
   const browser = await chromium.launch(launchOpts);
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const page = await browser.newPage({ viewport });
   try { await fn(page); } finally { await browser.close(); }
 }
 
-async function cmdShot(urlPath, outfile, port = 4173) {
+async function cmdShot(urlPath, outfile, port = 4173, viewport) {
   await withBrowser(async (page) => {
     await page.goto(`http://localhost:${port}${urlPath}`, { waitUntil: 'networkidle' });
     await page.screenshot({ path: outfile, fullPage: true });
     console.log(`[shot] ${urlPath} -> ${outfile} (title: ${await page.title()})`);
-  });
+  }, viewport);
 }
 
 async function cmdWaitlist(email, outfile, port = 4173) {
@@ -140,9 +140,19 @@ switch (cmd) {
   case 'build': cmdBuild(); break;
   case 'serve': cmdServe(args[0] ? Number(args[0]) : undefined); break;
   case 'stop': cmdStop(args[0] ? Number(args[0]) : undefined); break;
-  case 'shot': await cmdShot(args[0], args[1]); break;
-  case 'waitlist': await cmdWaitlist(args[0], args[1]); break;
-  case 'admin-login': await cmdAdminLogin(args[0], args[1]); break;
+  case 'shot': {
+    // shot <path> <outfile> [port] [widthxheight]
+    const port = args[2] ? Number(args[2]) : undefined;
+    let viewport;
+    if (args[3]) {
+      const [w, h] = args[3].split('x').map(Number);
+      viewport = { width: w, height: h || 900 };
+    }
+    await cmdShot(args[0], args[1], port, viewport);
+    break;
+  }
+  case 'waitlist': await cmdWaitlist(args[0], args[1], args[2] ? Number(args[2]) : undefined); break;
+  case 'admin-login': await cmdAdminLogin(args[0], args[1], args[2] ? Number(args[2]) : undefined); break;
   case 'all': await cmdAll(); break;
   default:
     console.error('Usage: driver.mjs <build|serve|stop|shot|waitlist|admin-login|all> [args]');

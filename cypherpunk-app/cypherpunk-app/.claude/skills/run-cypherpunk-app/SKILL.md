@@ -37,6 +37,12 @@ eyeballing a screenshot. All commands after `build`/`serve` need the server
 already running (`serve` prints its PID and writes a pidfile next to the
 driver; `stop` reads that pidfile).
 
+`shot` takes optional trailing args for port and viewport if you're not
+using the default `serve 4173`: `shot <path> <outfile> [port] [WxH]`, e.g.
+`shot / /tmp/mobile.png 4175 400x850` for a phone-width screenshot on a
+non-default port. `waitlist`/`admin-login` take an optional port as their
+3rd arg the same way.
+
 ## Prerequisites
 
 Nothing beyond Node + npm — no OS packages were needed (Next.js static
