@@ -45,3 +45,28 @@ or being built, since nothing about it exists elsewhere in this repo
 (`index.html`, `03-app-status.md`) — the SEO plan's Track B (city landing
 pages, pricing/capacity schema) shouldn't get real investment until that's
 verified.
+
+## 7. What Cypherpunk actually is, take 3: a Bitcoin startup accelerator
+The actual Claude Design mockup (`CYPHERPUNK App.dc.html`, finally seen via
+a screenshot on 2026-09-15 after three failed import attempts) shows
+neither of the above. It's a mobile-app-styled landing page for
+**"CYPHERPUNK — The Bitcoin Start-up Engine"**: a startup accelerator/studio
+("We invest in and build the next generation of Bitcoin unicorns"), a
+12-week founder cohort program, an "Apply as Founder" CTA, and backing
+named as Fulgur Ventures and Initial Capital (real Bitcoin-focused VC
+firms). Bottom nav shows 5 sections: Home / Accel / CoS / Hub / Events.
+
+This retroactively explains "this cohort" from the very first message in
+this project's conversation, which was answered at the time as a generic
+crypto/Web3 community-growth question — it was actually about accelerator
+cohort growth.
+
+**This is the third distinct positioning surfaced across this repo's
+history** (privacy-first Web3 community → hackathon space rental → Bitcoin
+accelerator). Until confirmed otherwise, treat this one as authoritative —
+it's the only one sourced from an actual design artifact rather than a
+conversational description — and treat the Launch Kit, Growth Calendar,
+weekly rhythm/content pillars, and SEO plan (all built around "privacy-first
+Web3 community") as **likely needing a rewrite**, not just a tweak, once
+the full design (only the Home screen's top half has been seen so far) is
+in hand.
