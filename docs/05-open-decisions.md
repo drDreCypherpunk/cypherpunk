@@ -63,10 +63,18 @@ cohort growth.
 
 **This is the third distinct positioning surfaced across this repo's
 history** (privacy-first Web3 community → hackathon space rental → Bitcoin
-accelerator). Until confirmed otherwise, treat this one as authoritative —
-it's the only one sourced from an actual design artifact rather than a
-conversational description — and treat the Launch Kit, Growth Calendar,
-weekly rhythm/content pillars, and SEO plan (all built around "privacy-first
-Web3 community") as **likely needing a rewrite**, not just a tweak, once
-the full design (only the Home screen's top half has been seen so far) is
-in hand.
+accelerator). This one is now confirmed authoritative: on 2026-09-15 the
+actual design source (`CYPHERPUNK App.dc.html` + `support.js`) was
+provided directly as a zip export and is preserved in `design/`. The
+public landing page (`cypherpunk-app/cypherpunk-app/app/`) has been
+rebuilt from it exactly — 5-tab structure (Home/Accel/CoS/Hub/Events),
+copy, colors, fonts (Space Grotesk + JetBrains Mono), animations, and the
+shared Apply/Pitch/Become-a-member modal. See `design/README.md` for the
+few deliberate departures (no phone bezel, real Bitcoin data instead of
+simulated, honest success states instead of faked ones).
+
+**Still genuinely open**: the Launch Kit, Growth Calendar, weekly
+rhythm/content pillars, and SEO plan were all built around "privacy-first
+Web3 community" and have **not** been updated for the accelerator
+positioning — they need a rewrite, not a tweak, and that work hasn't
+started.

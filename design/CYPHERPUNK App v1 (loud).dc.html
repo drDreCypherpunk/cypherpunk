@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050505;font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#F7931A;text-decoration:none}
+a:hover{color:#FFA726}
+::selection{background:#F7931A;color:#080808}
+.cp-scroll::-webkit-scrollbar{display:none}
+.cp-scroll{scrollbar-width:none}
+@keyframes cpMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes cpEnter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cpClip{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes cpPulse{0%{opacity:.9;transform:translate(-50%,-50%) scale(1)}70%{opacity:0;transform:translate(-50%,-50%) scale(4)}100%{opacity:0;transform:translate(-50%,-50%) scale(4)}}
+@keyframes cpSheet{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes cpBlink{0%,60%{opacity:1}61%,100%{opacity:.25}}
+</style>
+</helmet>
+<div style="min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 80% at 50% -10%,#161310 0%,#050505 58%);padding:30px 16px">
+<div style="position:relative;width:390px;height:844px;background:#080808;border-radius:52px;border:1px solid rgba(255,255,255,0.10);box-shadow:0 40px 110px rgba(0,0,0,0.75),0 0 0 11px #0c0c0c,0 0 0 12px rgba(255,255,255,0.05);overflow:hidden;display:flex;flex-direction:column">
+
+  <div style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:110px;height:32px;background:#000;border-radius:20px;z-index:60"></div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 28px 7px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#EDEDED;font-weight:500;z-index:30">
+    <span>9:41</span>
+    <span style="display:flex;gap:8px;align-items:center;font-size:10px;color:#8C8C8C">
+      <span style="color:#00FFA3;font-size:8px">●</span>SAT-LINK
+      <span style="display:inline-block;width:22px;height:11px;border:1px solid #8C8C8C;border-radius:3px;position:relative"><span style="position:absolute;inset:1.5px;right:6px;background:#00FFA3;border-radius:1px"></span></span>
+    </span>
+  </div>
+
+  <div style="position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);background:rgba(247,147,26,0.05);height:29px;display:flex;align-items:center;z-index:30">
+    <div style="display:flex;white-space:nowrap;animation:cpMarquee 22s linear infinite;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.03em;font-weight:500">
+      <div style="display:flex;align-items:center;flex:none">
+        <span style="padding:0 15px;color:#EDEDED">BTC/USD&nbsp;<span style="color:#F7931A">${{ btc }}</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">BLK HGT&nbsp;<span style="color:#F7931A">{{ block }}</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">MEMPOOL&nbsp;<span style="color:#F7931A">{{ mempool }}</span>&nbsp;sat/vB</span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">SANCTUARY&nbsp;<span style="color:#00FFA3">● LIVE</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">VILLA&nbsp;<span style="color:#F7931A">{{ temp }}°C</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">ENCRYPTION&nbsp;<span style="color:#F7931A">{{ latency }}ms</span></span><span style="color:#F7931A">///</span>
+      </div>
+      <div style="display:flex;align-items:center;flex:none" aria-hidden="true">
+        <span style="padding:0 15px;color:#EDEDED">BTC/USD&nbsp;<span style="color:#F7931A">${{ btc }}</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">BLK HGT&nbsp;<span style="color:#F7931A">{{ block }}</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">MEMPOOL&nbsp;<span style="color:#F7931A">{{ mempool }}</span>&nbsp;sat/vB</span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">SANCTUARY&nbsp;<span style="color:#00FFA3">● LIVE</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">VILLA&nbsp;<span style="color:#F7931A">{{ temp }}°C</span></span><span style="color:#F7931A">///</span>
+        <span style="padding:0 15px;color:#EDEDED">ENCRYPTION&nbsp;<span style="color:#F7931A">{{ latency }}ms</span></span><span style="color:#F7931A">///</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-height:0;position:relative">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div class="cp-scroll" style="height:100%;overflow-y:auto;padding:18px 20px 100px" data-screen-label="Home">
+      <div style="display:flex;align-items:center;justify-content:space-between;animation:cpEnter .5s both">
+        <div style="display:flex;align-items:center;gap:9px">
+          <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#F7931A;border:1px solid rgba(247,147,26,0.45);padding:4px 8px;border-radius:7px;font-size:13px;letter-spacing:0.02em">[ C // P ]</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:8px;line-height:1.35;color:#8C8C8C;letter-spacing:0.06em">CYPHERPUNK™<br>VILLA PROTOCOL</span>
+        </div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#00FFA3;letter-spacing:0.06em;animation:cpBlink 2.4s steps(1) infinite">● NODE ONLINE</span>
+      </div>
+
+      <div style="margin-top:30px;animation:cpEnter .5s both;animation-delay:.06s">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#F7931A;letter-spacing:0.08em;margin-bottom:14px">/// SOVEREIGN WORKSPACE &amp; RESET</div>
+        <h1 id="cp-hero" style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:37px;line-height:0.98;letter-spacing:-0.02em;color:#EDEDED;text-wrap:balance;min-height:110px">CODE BY DAY. RESET BY NIGHT. THE CYPHERPUNK RESIDENCY.</h1>
+        <div style="height:3px;width:64px;background:#F7931A;margin-top:16px;border-radius:2px"></div>
+      </div>
+
+      <sc-if value="{{ showStickers }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;animation:cpEnter .5s both;animation-delay:.12s">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;background:#F7931A;color:#080808;padding:6px 11px;border-radius:20px;transform:rotate(-4deg);letter-spacing:0.03em">GM ☀ STACK SATS</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#EDEDED;border:1.5px solid rgba(255,255,255,0.25);padding:6px 11px;border-radius:20px;transform:rotate(3deg);letter-spacing:0.03em">NGMI-FREE ZONE</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#00FFA3;border:1.5px solid rgba(0,255,163,0.4);padding:6px 11px;border-radius:20px;transform:rotate(-2deg);letter-spacing:0.03em">1 BTC = 1 BTC</span>
+      </div>
+      </sc-if>
+
+      <div style="display:flex;gap:9px;margin-top:22px">
+        <div style="flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:11px 12px;animation:cpEnter .5s both;animation-delay:.16s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#7A7A7A;letter-spacing:0.06em">STATUS</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00FFA3;margin-top:5px;font-weight:500">● LIVE</div>
+        </div>
+        <div style="flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:11px 12px;animation:cpEnter .5s both;animation-delay:.2s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#7A7A7A;letter-spacing:0.06em">VILLA TEMP</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#F7931A;margin-top:5px;font-weight:500">{{ temp }}°C</div>
+        </div>
+        <div style="flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:11px 12px;animation:cpEnter .5s both;animation-delay:.24s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#7A7A7A;letter-spacing:0.06em">LATENCY</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#EDEDED;margin-top:5px;font-weight:500">{{ latency }}ms</div>
+        </div>
+      </div>
+
+      <button ref="{{ magRef }}" onClick="{{ openApply }}" style="margin-top:22px;width:100%;background:#F7931A;color:#080808;border:none;border-radius:14px;padding:17px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.01em;cursor:pointer;display:flex;align-items:center;justify-content:space-between;will-change:transform;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s;animation:cpEnter .5s both;animation-delay:.3s" style-hover="background:#FFA726">
+        <span>APPLY FOR COHORT</span><span style="font-size:20px">→</span>
+      </button>
+
+      <button onClick="{{ goCohorts }}" style="margin-top:12px;width:100%;background:none;color:#EDEDED;border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:15px;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:12px;letter-spacing:0.04em;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .2s" style-active="transform:scale(.97)" style-hover="border-color:rgba(247,147,26,0.5)">
+        <span>VIEW RESIDENCY COHORTS</span><span style="color:#F7931A">↗</span>
+      </button>
+
+      <div style="margin-top:26px;animation:cpEnter .5s both;animation-delay:.36s">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7A7A7A;letter-spacing:0.06em;margin-bottom:11px">/// FEATURED SANCTUARY</div>
+        <div onClick="{{ goSpaces }}" style="border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;cursor:pointer">
+          <div style="overflow:hidden">
+            <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,rgba(247,147,26,0.07) 0 11px,rgba(255,255,255,0.02) 11px 22px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:13px;animation:cpClip .9s both" style-active="transform:scale(1.09)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A8A;letter-spacing:0.04em">[ IMG · lakefront glass villa, dusk ]</span>
+            </div>
+          </div>
+          <div style="padding:14px 15px 15px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:#EDEDED;letter-spacing:-0.01em">THE LAKEFRONT GLASS VILLA</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">4-key sovereign residence · fibre + fail-over Starlink · open-air jacuzzi</div>
+            <span style="display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#F7931A;font-weight:500;transition:gap .2s" style-hover="gap:11px">EXPLORE WATER ARCHITECTURE <span>→</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:26px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;animation:cpEnter .5s both;animation-delay:.42s">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7A7A7A;letter-spacing:0.06em;margin-bottom:12px">/// SATS → USD PROTOCOL</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <input type="number" value="{{ sats }}" onChange="{{ onSats }}" style="flex:1;min-width:0;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:11px 12px;color:#EDEDED;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none" style-focus="border-color:#F7931A">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7A7A7A">sats</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:16px;color:#F7931A">=</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:15px;color:#EDEDED;font-weight:500;white-space:nowrap">{{ usd }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#5F5F5F;letter-spacing:0.04em">
+          <span>PGP&nbsp;<span style="color:#8C8C8C">7A3F&nbsp;9E21&nbsp;··DE&nbsp;C4B0</span></span>
+          <span>GPS&nbsp;<span style="filter:blur(3px);color:#8C8C8C">38.24N&nbsp;21.73E</span></span>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isSpaces }}">
+    <div class="cp-scroll" style="height:100%;overflow-y:auto;padding:20px 20px 100px" data-screen-label="Spaces">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#F7931A;letter-spacing:0.08em">01 /// THE SPACES</div>
+      <h2 style="margin:8px 0 20px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1;letter-spacing:-0.02em;color:#EDEDED">SANCTUARY<br>VILLAS</h2>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;animation:cpEnter .5s both">
+          <div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(247,147,26,0.07) 0 11px,rgba(255,255,255,0.02) 11px 22px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px;animation:cpClip .9s both" style-active="transform:scale(1.09)"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#8A8A8A">[ IMG · lake view through glass ]</span></div></div>
+          <div style="padding:14px 15px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:#EDEDED">THE LAKEFRONT GLASS VILLA</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A;border:1px solid rgba(247,147,26,0.4);padding:2px 6px;border-radius:12px">4 KEY</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Floor-to-ceiling glass on the water. Silent-cooled war-desk.</div><span style="display:inline-flex;gap:5px;margin-top:11px;font-family:'JetBrains Mono';font-size:11px;color:#F7931A;transition:gap .2s" style-hover="gap:11px">EXPLORE <span>→</span></span></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;animation:cpEnter .5s both;animation-delay:.08s">
+          <div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(0,255,163,0.06) 0 11px,rgba(255,255,255,0.02) 11px 22px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px;animation:cpClip .9s both;animation-delay:.1s" style-active="transform:scale(1.09)"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#8A8A8A">[ IMG · open-air thermal deck, steam ]</span></div></div>
+          <div style="padding:14px 15px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:#EDEDED">OPEN-AIR THERMAL DECK</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#00FFA3;border:1px solid rgba(0,255,163,0.4);padding:2px 6px;border-radius:12px">42°C</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Hot-tub / jacuzzi + cold plunge under open sky. Somatic reset.</div><span style="display:inline-flex;gap:5px;margin-top:11px;font-family:'JetBrains Mono';font-size:11px;color:#F7931A;transition:gap .2s" style-hover="gap:11px">EXPLORE <span>→</span></span></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;animation:cpEnter .5s both;animation-delay:.16s">
+          <div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(247,147,26,0.07) 0 11px,rgba(255,255,255,0.02) 11px 22px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px;animation:cpClip .9s both;animation-delay:.2s" style-active="transform:scale(1.09)"><span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#8A8A8A">[ IMG · cypher war-room, monitors ]</span></div></div>
+          <div style="padding:14px 15px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:700;font-size:17px;color:#EDEDED">CYPHER WAR-ROOM</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A;border:1px solid rgba(247,147,26,0.4);padding:2px 6px;border-radius:12px">SCIF</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Faraday-shielded build room. Air-gapped signing station.</div><span style="display:inline-flex;gap:5px;margin-top:11px;font-family:'JetBrains Mono';font-size:11px;color:#F7931A;transition:gap .2s" style-hover="gap:11px">EXPLORE <span>→</span></span></div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isCohorts }}">
+    <div class="cp-scroll" style="height:100%;overflow-y:auto;padding:20px 0 100px" data-screen-label="Cohorts">
+      <div style="padding:0 20px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#F7931A;letter-spacing:0.08em">03 /// RESIDENCY COHORTS</div>
+        <h2 style="margin:8px 0 18px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1;letter-spacing:-0.02em;color:#EDEDED">LIVING<br>MAP</h2>
+      </div>
+
+      <div style="margin:0 20px;position:relative;height:190px;border:1px solid rgba(255,255,255,0.10);border-radius:16px;overflow:hidden;background:#0a0a0a;animation:cpEnter .5s both">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(247,147,26,0.09) 1px,transparent 1px),linear-gradient(90deg,rgba(247,147,26,0.09) 1px,transparent 1px);background-size:26px 26px"></div>
+        <div style="position:absolute;top:44%;left:38%">
+          <div style="position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;background:rgba(0,255,163,0.5);animation:cpPulse 2.6s ease-out infinite"></div>
+          <div style="width:14px;height:14px;border-radius:50%;background:#00FFA3;box-shadow:0 0 14px rgba(0,255,163,0.8);position:relative"></div>
+        </div>
+        <div style="position:absolute;bottom:12px;left:14px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#8C8C8C;letter-spacing:0.04em;line-height:1.6">
+          <div>ESTATE&nbsp;<span style="color:#F7931A">CYP-Δ07</span></div>
+          <div>GPS&nbsp;<span style="filter:blur(3.5px);color:#EDEDED">38.2417N 21.7346E</span>&nbsp;[REDACTED]</div>
+          <div>BEARING&nbsp;<span style="color:#EDEDED">247° · 1.4KM SHORE</span></div>
+        </div>
+        <div style="position:absolute;top:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#00FFA3;letter-spacing:0.06em">● SIGNAL LOCK</div>
+      </div>
+
+      <div style="margin:22px 0 8px;padding:0 20px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#7A7A7A;letter-spacing:0.06em;display:flex;justify-content:space-between"><span>/// OPEN COHORTS</span><span style="color:#F7931A">SWIPE →</span></div>
+      <div class="cp-scroll" style="display:flex;gap:14px;overflow-x:auto;padding:6px 20px 8px;scroll-snap-type:x mandatory">
+        <div style="scroll-snap-align:start;flex:none;width:236px;border:1px solid rgba(247,147,26,0.35);border-radius:16px;padding:16px;background:rgba(247,147,26,0.05)">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A">COHORT 07</span><span style="font-family:'JetBrains Mono';font-size:9px;font-weight:700;background:#00FFA3;color:#080808;padding:3px 8px;border-radius:12px">OPEN</span></div>
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:25px;color:#EDEDED;margin-top:8px;letter-spacing:-0.01em">GENESIS</div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:4px">MAR 03 — MAR 24</div>
+          <div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:9px;color:#7A7A7A;margin-bottom:5px"><span>SEATS</span><span style="color:#EDEDED">4 / 12</span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden"><div style="height:100%;width:33%;background:#F7931A"></div></div></div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:14px">≈ 0.42 BTC / 21 NIGHTS</div>
+          <button onClick="{{ openApply }}" style="margin-top:14px;width:100%;background:#F7931A;color:#080808;border:none;border-radius:10px;padding:11px;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:0.04em;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.95)">APPLY →</button>
+        </div>
+        <div style="scroll-snap-align:start;flex:none;width:236px;border:1px solid rgba(255,255,255,0.10);border-radius:16px;padding:16px;background:rgba(255,255,255,0.02)">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C">COHORT 08</span><span style="font-family:'JetBrains Mono';font-size:9px;font-weight:700;color:#EDEDED;border:1px solid rgba(255,255,255,0.3);padding:3px 8px;border-radius:12px">WAITLIST</span></div>
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:25px;color:#EDEDED;margin-top:8px;letter-spacing:-0.01em">OBSIDIAN</div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:4px">APR 07 — APR 28</div>
+          <div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:9px;color:#7A7A7A;margin-bottom:5px"><span>SEATS</span><span style="color:#EDEDED">12 / 12</span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden"><div style="height:100%;width:100%;background:#8C8C8C"></div></div></div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:14px">≈ 0.42 BTC / 21 NIGHTS</div>
+          <button onClick="{{ openApply }}" style="margin-top:14px;width:100%;background:none;color:#EDEDED;border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:11px;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:0.04em;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.95)">JOIN WAITLIST</button>
+        </div>
+        <div style="scroll-snap-align:start;flex:none;width:236px;border:1px solid rgba(255,255,255,0.10);border-radius:16px;padding:16px;background:rgba(255,255,255,0.02)">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C">COHORT 09</span><span style="font-family:'JetBrains Mono';font-size:9px;font-weight:700;background:#00FFA3;color:#080808;padding:3px 8px;border-radius:12px">OPEN</span></div>
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:25px;color:#EDEDED;margin-top:8px;letter-spacing:-0.01em">MEMPOOL</div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:4px">MAY 12 — JUN 02</div>
+          <div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:9px;color:#7A7A7A;margin-bottom:5px"><span>SEATS</span><span style="color:#EDEDED">2 / 12</span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden"><div style="height:100%;width:17%;background:#F7931A"></div></div></div>
+          <div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:14px">≈ 0.42 BTC / 21 NIGHTS</div>
+          <button onClick="{{ openApply }}" style="margin-top:14px;width:100%;background:#F7931A;color:#080808;border:none;border-radius:10px;padding:11px;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:0.04em;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.95)">APPLY →</button>
+        </div>
+      </div>
+
+      <div style="padding:0 20px;margin-top:22px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7A7A7A;letter-spacing:0.06em;margin-bottom:12px">/// FULL SCHEDULE</div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid rgba(255,255,255,0.08)"><div><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A">10</span>&nbsp;&nbsp;<span style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#EDEDED">HALVING</span><div style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C;margin-top:3px">JUN 16 — JUL 07</div></div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A;border:1px solid rgba(247,147,26,0.4);padding:3px 8px;border-radius:12px">SOON</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid rgba(255,255,255,0.08)"><div><span style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C">11</span>&nbsp;&nbsp;<span style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#EDEDED">TESTNET</span><div style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C;margin-top:3px">JUL 21 — AUG 11</div></div><span style="font-family:'JetBrains Mono';font-size:9px;color:#8C8C8C;border:1px solid rgba(255,255,255,0.18);padding:3px 8px;border-radius:12px">TBA</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)"><div><span style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C">12</span>&nbsp;&nbsp;<span style="font-family:'Space Grotesk';font-weight:600;font-size:15px;color:#EDEDED">SOLSTICE</span><div style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C;margin-top:3px">SEP 01 — SEP 22</div></div><span style="font-family:'JetBrains Mono';font-size:9px;color:#8C8C8C;border:1px solid rgba(255,255,255,0.18);padding:3px 8px;border-radius:12px">TBA</span></div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isBio }}">
+    <div class="cp-scroll" ref="{{ bioRef }}" style="height:100%;overflow-y:auto;padding:0 0 100px" data-screen-label="Biohacking">
+      <div style="position:sticky;top:0;z-index:5;background:#080808;padding:20px 20px 12px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#F7931A;letter-spacing:0.08em">02 /// BIOHACKING</div>
+        <h2 style="margin:8px 0 14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;line-height:1;letter-spacing:-0.02em;color:#EDEDED">SENSORY RESET<br>PROTOCOL</h2>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="flex:1;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden"><div style="height:100%;width:{{ bioProgressStr }};background:#F7931A;transition:width .1s linear"></div></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#F7931A;min-width:64px;text-align:right">{{ bioProgressStr }} RESET</span>
+        </div>
+      </div>
+      <div style="padding:8px 20px 0;display:flex;flex-direction:column;gap:13px">
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:16px;background:rgba(255,255,255,0.02)"><div style="display:flex;justify-content:space-between"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F7931A;font-weight:700">01</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C">06:00 · 12 MIN</span></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;color:#EDEDED;margin-top:8px">CRYOTHERAPY</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">−110°C chamber. Cortisol dump before first commit.</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:16px;background:rgba(255,255,255,0.02)"><div style="display:flex;justify-content:space-between"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F7931A;font-weight:700">02</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C">07:00 · 20 MIN</span></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;color:#EDEDED;margin-top:8px">BREATHWORK</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Wim Hof rounds on the thermal deck. HRV logged to node.</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:16px;background:rgba(255,255,255,0.02)"><div style="display:flex;justify-content:space-between"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F7931A;font-weight:700">03</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C">13:00 · 15 MIN</span></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;color:#EDEDED;margin-top:8px">RED-LIGHT THERAPY</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">660nm panels. Mitochondrial recharge between deep-work blocks.</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:16px;background:rgba(255,255,255,0.02)"><div style="display:flex;justify-content:space-between"><span style="font-family:'JetBrains Mono';font-size:22px;color:#00FFA3;font-weight:700">04</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C">18:30 · 4 MIN</span></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;color:#EDEDED;margin-top:8px">COLD PLUNGE</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Lake-fed 4°C plunge → open-air 42°C jacuzzi contrast loop.</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:16px;background:rgba(255,255,255,0.02)"><div style="display:flex;justify-content:space-between"><span style="font-family:'JetBrains Mono';font-size:22px;color:#F7931A;font-weight:700">05</span><span style="font-family:'JetBrains Mono';font-size:10px;color:#8C8C8C">21:00 · 30 MIN</span></div><div style="font-family:'Space Grotesk';font-weight:700;font-size:19px;color:#EDEDED;margin-top:8px">SOMATIC RESET</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#8C8C8C;margin-top:6px;line-height:1.5">Guided nervous-system downshift. Screens off. Full node sync.</div></div>
+      </div>
+    </div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ applyOpen }}">
+  <div onClick="{{ closeApply }}" style="position:absolute;inset:0;z-index:70;background:rgba(4,4,4,0.72);backdrop-filter:blur(6px);display:flex;align-items:flex-end">
+    <div onClick="{{ sheetStop }}" class="cp-scroll" style="width:100%;max-height:92%;overflow-y:auto;background:#0C0C0C;border-top:1px solid rgba(247,147,26,0.4);border-radius:26px 26px 0 0;padding:20px 22px 30px;animation:cpSheet .38s cubic-bezier(.2,.8,.2,1) both">
+      <div style="display:flex;justify-content:center;margin-bottom:16px"><div style="width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,0.2)"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#F7931A;letter-spacing:0.08em">/// PGP APPLICATION</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:23px;color:#EDEDED;margin-top:6px;letter-spacing:-0.01em">JOIN THE PROTOCOL</div></div>
+        <button onClick="{{ closeApply }}" style="background:none;border:1px solid rgba(255,255,255,0.15);color:#EDEDED;width:34px;height:34px;border-radius:10px;cursor:pointer;font-size:16px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.9)">✕</button>
+      </div>
+
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8C8C8C;letter-spacing:0.04em">GITHUB HANDLE *</label><input placeholder="@satoshi" style="margin-top:7px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 13px;color:#EDEDED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none" style-focus="border-color:#F7931A"></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8C8C8C;letter-spacing:0.04em">PGP FINGERPRINT *</label><input placeholder="7A3F 9E21 ..." style="margin-top:7px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 13px;color:#EDEDED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;letter-spacing:0.06em" style-focus="border-color:#F7931A"></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8C8C8C;letter-spacing:0.04em">TARGET COHORT</label><select style="margin-top:7px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 13px;color:#EDEDED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;appearance:none" style-focus="border-color:#F7931A"><option style="background:#0C0C0C">07 · GENESIS — OPEN</option><option style="background:#0C0C0C">09 · MEMPOOL — OPEN</option><option style="background:#0C0C0C">08 · OBSIDIAN — WAITLIST</option></select></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8C8C8C;letter-spacing:0.04em">WHAT ARE YOU BUILDING?</label><textarea rows="2" placeholder="one line, no marketing" style="margin-top:7px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 13px;color:#EDEDED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;resize:none" style-focus="border-color:#F7931A"></textarea></div>
+      </div>
+
+      <button onClick="{{ submitApply }}" style="margin-top:18px;width:100%;background:{{ applyBtnBg }};color:#080808;border:none;border-radius:13px;padding:16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.02em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s" style-active="transform:scale(.96)">
+        <span>{{ applyLabel }}</span>
+      </button>
+      <div style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5F5F5F;text-align:center;letter-spacing:0.03em;line-height:1.5">ENCRYPTED · END-TO-END · NO KYC<br>APPLICATIONS REVIEWED BY EXISTING COHORT</div>
+    </div>
+  </div>
+  </sc-if>
+
+  <div style="position:absolute;bottom:0;left:0;right:0;height:76px;background:rgba(8,8,8,0.88);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-around;padding:0 10px 16px;z-index:65">
+    <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.88)"><span style="width:15px;height:15px;border:1.7px solid {{ cHome }};border-radius:3px"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.06em;color:{{ cHome }}">HOME</span></button>
+    <button onClick="{{ goSpaces }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.88)"><span style="width:15px;height:15px;border:1.7px solid {{ cSpaces }};border-radius:50%"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.06em;color:{{ cSpaces }}">SPACES</span></button>
+    <button onClick="{{ openApply }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:2px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.9)"><span style="width:34px;height:34px;border-radius:50%;background:#F7931A;color:#080808;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;line-height:1;box-shadow:0 6px 18px rgba(247,147,26,0.4)">+</span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.06em;color:#F7931A">APPLY</span></button>
+    <button onClick="{{ goCohorts }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.88)"><span style="width:14px;height:14px;background:transparent;border:1.7px solid {{ cCohorts }};transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.06em;color:{{ cCohorts }}">COHORTS</span></button>
+    <button onClick="{{ goBio }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.88)"><span style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid {{ cBio }}"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.06em;color:{{ cBio }}">BIO</span></button>
+  </div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:466,&quot;height&quot;:940},&quot;scrambleHero&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;liveData&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;showStickers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { screen:'home', applyOpen:false, applyState:'idle', btc:111842, block:902317, mempool:14, temp:41.2, latency:8, bioProgress:0, sats:250000 };
+  HERO = 'CODE BY DAY. RESET BY NIGHT. THE CYPHERPUNK RESIDENCY.';
+  CH = '01#/<>[]{}=$*+X\u25B2\u25C6\u00B7';
+
+  componentDidMount(){
+    if(this.props.liveData!==false){ this.timer = setInterval(()=>this.tick(), 2200); }
+    if(this.props.scrambleHero!==false){ setTimeout(()=>this.scramble(), 90); }
+  }
+  componentWillUnmount(){ clearInterval(this.timer); clearInterval(this._siv); if(this._bioNode) this._bioNode.removeEventListener('scroll', this.onBioScroll); }
+
+  tick(){ this.setState(s=>({
+    btc: Math.max(90000, s.btc + Math.round((Math.random()-0.48)*180)),
+    block: s.block + (Math.random()<0.25?1:0),
+    mempool: Math.max(1, Math.min(240, s.mempool + Math.round((Math.random()-0.5)*6))),
+    temp: Math.max(38, Math.min(44, +(s.temp + (Math.random()-0.5)*0.3).toFixed(1))),
+    latency: Math.max(3, Math.min(22, s.latency + Math.round((Math.random()-0.5)*3)))
+  })); }
+
+  scramble(){
+    const node = document.getElementById('cp-hero');
+    if(!node || this._scrambled) return;
+    this._scrambled = true;
+    const t = this.HERO, c = this.CH; let f = 0; const total = 46;
+    clearInterval(this._siv);
+    this._siv = setInterval(()=>{ f++; const rev = Math.floor((f/total)*t.length); let o='';
+      for(let i=0;i<t.length;i++){ const ch=t[i]; o += (ch===' '||i<rev) ? ch : c[Math.floor(Math.random()*c.length)]; }
+      node.textContent = o;
+      if(f>=total){ node.textContent = t; clearInterval(this._siv); }
+    }, 18);
+  }
+
+  bioRef = (node)=>{ if(this._bioNode) this._bioNode.removeEventListener('scroll', this.onBioScroll); this._bioNode = node; if(node) node.addEventListener('scroll', this.onBioScroll); };
+  onBioScroll = ()=>{ const el=this._bioNode; if(!el) return; const max=el.scrollHeight-el.clientHeight; const p = max>0 ? el.scrollTop/max : 0; this.setState({ bioProgress: Math.round(p*100) }); };
+
+  magRef = (node)=>{ if(!node) return;
+    node.onpointermove = (e)=>{ if(e.pointerType==='touch') return; const r=node.getBoundingClientRect(); const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2; node.style.transform=`translate(${x*0.12}px,${y*0.16}px)`; };
+    node.onpointerleave = ()=>{ node.style.transform=''; };
+  };
+
+  setScreen = (name)=> this.setState({ screen:name, bioProgress:0 });
+  openApply = ()=> this.setState({ applyOpen:true, applyState:'idle' });
+  closeApply = ()=> this.setState({ applyOpen:false });
+  sheetStop = (e)=>{ if(e&&e.stopPropagation) e.stopPropagation(); };
+  submitApply = (e)=>{ if(e&&e.preventDefault) e.preventDefault(); if(this.state.applyState!=='idle') return; this.setState({ applyState:'sending' }); setTimeout(()=>this.setState({ applyState:'sent' }), 1500); };
+  onSats = (e)=> this.setState({ sats: Math.max(0, Number(e.target.value)||0) });
+  fmt(n){ return n.toLocaleString('en-US'); }
+
+  renderVals(){
+    const s = this.state;
+    const usd = (s.sats/1e8) * s.btc;
+    const active = '#F7931A', idle = '#6E6E6E';
+    const applyLabel = s.applyState==='sending' ? 'TRANSMITTING\u2026' : s.applyState==='sent' ? 'APPLICATION RECEIVED \u2713' : 'SUBMIT APPLICATION';
+    return {
+      isHome:s.screen==='home', isSpaces:s.screen==='spaces', isCohorts:s.screen==='cohorts', isBio:s.screen==='bio',
+      goHome:()=>this.setScreen('home'), goSpaces:()=>this.setScreen('spaces'), goCohorts:()=>this.setScreen('cohorts'), goBio:()=>this.setScreen('bio'),
+      openApply:this.openApply, closeApply:this.closeApply, submitApply:this.submitApply, sheetStop:this.sheetStop,
+      applyOpen:s.applyOpen, applyLabel, applyBtnBg: s.applyState==='sent' ? '#00FFA3' : '#F7931A',
+      btc:this.fmt(s.btc), block:this.fmt(s.block), mempool:String(s.mempool), temp:s.temp.toFixed(1), latency:String(s.latency),
+      bioRef:this.bioRef, magRef:this.magRef,
+      bioProgressStr: s.bioProgress + '%',
+      sats:s.sats, onSats:this.onSats,
+      usd: '$' + usd.toLocaleString('en-US',{ minimumFractionDigits:2, maximumFractionDigits:2 }),
+      showStickers: this.props.showStickers!==false,
+      cHome:s.screen==='home'?active:idle, cSpaces:s.screen==='spaces'?active:idle, cCohorts:s.screen==='cohorts'?active:idle, cBio:s.screen==='bio'?active:idle
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,23 +1,22 @@
 :root {
-  --bg: #08090b;
-  --surface: #101216;
-  --surface-2: #16191e;
-  --border: #24272d;
-  --border-strong: #3a3e46;
-  --text: #f2f1ee;
-  --text-dim: #97a0ad;
-  --text-faint: #5b626c;
-  --accent: #f0902a;
-  --accent-strong: #ffa53d;
-  --accent-soft: #3a2814;
-  --good: #34d399;
-  --good-soft: #163326;
-  --warning: #d9a441;
-  --warning-soft: #2e2718;
-  --critical: #d9534f;
-  --critical-soft: #301c1c;
+  --bg: #050506;
+  --surface: #0a0a0b;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-soft: rgba(255, 255, 255, 0.07);
+  --text: #e9e9ed;
+  --text-dim: #9a9ca4;
+  --text-faint: #83858e;
+  --text-faintest: #6b6d75;
+  --text-mute: #5c5e66;
+  --idle: #63656d;
+  --accent: #f7931a;
+  --accent-hover: #ffa726;
+  --accent-tint: rgba(247, 147, 26, 0.04);
+  --accent-border: rgba(247, 147, 26, 0.3);
+  --good: #00ffa3;
+
   --font-mono: var(--jetbrains-mono), ui-monospace, "SF Mono", Consolas, monospace;
-  --font-sans: var(--plex-sans), -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--space-grotesk), -apple-system, "Segoe UI", sans-serif;
 }
 
 * {
@@ -31,140 +30,32 @@ body {
 }
 
 body {
-  background: var(--bg);
+  background: radial-gradient(120% 60% at 50% -10%, #131215 0%, var(--bg) 55%);
   color: var(--text);
   font-family: var(--font-sans);
-  line-height: 1.55;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: var(--accent);
 }
 
+a:hover {
+  color: var(--accent-hover);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--surface);
+}
+
 h1,
 h2,
-h3,
-h4 {
+h3 {
   font-weight: 600;
   margin: 0;
   text-wrap: balance;
-}
-
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.wrap {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section {
-  padding: 56px 0;
-  border-top: 1px solid var(--border);
-  scroll-margin-top: 56px;
-}
-
-.section:first-of-type {
-  border-top: none;
-}
-
-.section-index {
-  color: var(--accent);
-  margin-right: 4px;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.card + .card {
-  margin-top: 12px;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid var(--border-strong);
-  border-radius: 20px;
-  padding: 7px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-dim);
-}
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 15px 20px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  width: 100%;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #14100a;
-}
-
-.btn-primary:hover {
-  background: var(--accent-strong);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.btn-ghost:hover {
-  background: var(--accent-soft);
-}
-
-.img-placeholder {
-  aspect-ratio: 16 / 10;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background:
-    repeating-linear-gradient(
-      135deg,
-      var(--surface-2),
-      var(--surface-2) 8px,
-      var(--surface) 8px,
-      var(--surface) 16px
-    );
-  display: flex;
-  align-items: flex-end;
-  padding: 12px;
-  margin-bottom: 16px;
-}
-
-.img-placeholder-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-faint);
 }
 
 button,
@@ -174,7 +65,16 @@ select {
   font-family: inherit;
 }
 
-::selection {
-  background: var(--accent-soft);
-  color: var(--text);
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.label-faint {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--text-faintest);
 }

@@ -1,29 +1,30 @@
-import { JetBrains_Mono, IBM_Plex_Sans } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   variable: "--jetbrains-mono",
   display: "swap",
 });
 
-const plexSans = IBM_Plex_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--plex-sans",
+  variable: "--space-grotesk",
   display: "swap",
 });
 
 export const metadata = {
-  title: "CYPHERPUNK App",
-  description: "Bitcoin-Native. Decentralised by Design.",
+  title: "CYPHERPUNK — The Bitcoin Start-up Engine",
+  description:
+    "CYPHERPUNK invests in and builds the next generation of Bitcoin unicorns. A 12-week accelerator cohort: funding, technical resources, and policy access to scale.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${jetbrainsMono.variable} ${plexSans.variable}`}>
+      <body className={`${jetbrainsMono.variable} ${spaceGrotesk.variable}`}>
         {children}
       </body>
     </html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050506;font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#F7931A;text-decoration:none}
+a:hover{color:#FFA726}
+::selection{background:#F7931A;color:#0A0A0B}
+.cp-scroll::-webkit-scrollbar{display:none}
+.cp-scroll{scrollbar-width:none}
+@keyframes cpMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes cpPulse{0%{opacity:.85;transform:translate(-50%,-50%) scale(1)}70%{opacity:0;transform:translate(-50%,-50%) scale(4)}100%{opacity:0;transform:translate(-50%,-50%) scale(4)}}
+@keyframes cpSheet{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes cpBlink{0%,58%{opacity:1}59%,100%{opacity:.28}}
+@keyframes cpSpin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 80% at 50% -12%,#131215 0%,#050506 60%);padding:30px 16px">
+<div style="position:relative;width:390px;height:844px;background:#0A0A0B;border-radius:52px;border:1px solid rgba(255,255,255,0.09);box-shadow:0 40px 110px rgba(0,0,0,0.75),0 0 0 11px #0c0c0d,0 0 0 12px rgba(255,255,255,0.05);overflow:hidden;display:flex;flex-direction:column">
+
+  <div style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:110px;height:32px;background:#000;border-radius:20px;z-index:60"></div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 28px 8px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#E9E9ED;font-weight:500;z-index:30">
+    <span>9:41</span>
+    <span style="display:flex;gap:8px;align-items:center;font-size:10px;color:#83858E">
+      <span style="color:#00FFA3;font-size:8px">●</span>SAT-LINK
+      <span style="display:inline-block;width:22px;height:11px;border:1px solid #83858E;border-radius:3px;position:relative"><span style="position:absolute;inset:1.5px;right:6px;background:#00FFA3;border-radius:1px"></span></span>
+    </span>
+  </div>
+
+  <div style="position:relative;height:28px;display:flex;align-items:center;justify-content:center;z-index:30">
+    <div id="cp-tick" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.04em;font-weight:500;color:#9A9CA4;transition:opacity .35s ease">GBP/BTC <span style="color:#F7931A">£{{ gbp }}</span></div>
+  </div>
+  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);z-index:30"></div>
+
+  <div style="flex:1;min-height:0;position:relative">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div id="cp-home" class="cp-scroll" style="height:100%;overflow-y:auto;padding:26px 24px 104px" data-screen-label="Home">
+
+
+      <div style="margin-top:44px">
+        <div data-r style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#F7931A;letter-spacing:0.1em;margin-bottom:18px">/// WELCOME TO CYPHERPUNK</div>
+        <h1 id="cp-hero" data-r style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:42px;line-height:0.96;letter-spacing:-0.03em;color:#E9E9ED;text-wrap:balance;min-height:120px">THE BITCOIN START-UP ENGINE</h1>
+        <p data-r style="margin:20px 0 0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.5;color:#9A9CA4;max-width:300px">We invest in and build the next generation of Bitcoin unicorns.</p>
+        <button id="cp-cta" onClick="{{ openApply }}" data-r style="margin-top:26px;width:100%;background:#F7931A;color:#0A0A0B;border:none;border-radius:12px;padding:18px 20px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.01em;cursor:pointer;display:flex;align-items:center;justify-content:space-between;will-change:transform" style-hover="background:#FFA726"><span>APPLY AS FOUNDER</span><span style="font-size:20px">→</span></button>
+      </div>
+
+      <div data-r style="margin-top:44px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em;margin-bottom:14px">BACKED BY</div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:16px 14px;text-align:center;font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#E9E9ED">Fulgur Ventures</div>
+          <div style="flex:1;border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:16px 14px;text-align:center;font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#E9E9ED">Initial Capital</div>
+        </div>
+      </div>
+
+      <p data-r style="margin:40px 0 0;font-family:'Space Grotesk',sans-serif;font-size:20px;line-height:1.4;color:#E9E9ED;letter-spacing:-0.01em;text-wrap:balance">We help you do in <span style="color:#F7931A">12 weeks</span> what usually takes a year — funding, technical resources, and high-level policy access to scale.</p>
+
+      <div data-r style="margin-top:40px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px"><div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em">OUR COMPANIES</div><span onClick="{{ goCos }}" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#F7931A;cursor:pointer">VIEW ALL →</span></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div onClick="{{ goCos }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07);cursor:pointer"><div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED">SOVRN</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:3px">INHERITANCE</div></div><span style="color:#F7931A">↗</span></div>
+          <div onClick="{{ goCos }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07);cursor:pointer"><div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED">SATPAY</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:3px">CONSUMER FINTECH</div></div><span style="color:#F7931A">↗</span></div>
+          <div onClick="{{ goCos }}" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);cursor:pointer"><div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED">ENCLAVE</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:3px">CLOUD COMPUTING</div></div><span style="color:#F7931A">↗</span></div>
+        </div>
+      </div>
+
+      <div data-r onClick="{{ goHub }}" style="margin-top:40px;border:1px solid rgba(247,147,26,0.3);border-radius:14px;padding:20px;cursor:pointer;background:rgba(247,147,26,0.04)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#F7931A;letter-spacing:0.1em">THE HUB</div>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:22px;color:#E9E9ED;margin-top:8px;letter-spacing:-0.01em">The Right Room</div>
+        <div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:8px;line-height:1.55">Where Bitcoin's builders, investors, media and policymakers cross paths.</div>
+        <span style="display:inline-flex;gap:6px;margin-top:14px;font-family:'JetBrains Mono';font-size:11px;color:#F7931A">Learn more <span>→</span></span>
+      </div>
+
+      <div data-r style="margin-top:44px">
+        <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);margin-bottom:22px"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em;margin-bottom:12px">NEWSLETTER</div>
+        <div style="font-family:'Space Grotesk';font-size:13px;color:#9A9CA4;line-height:1.5;margin-bottom:12px">Latest news, events and research from CYPHERPUNK.</div>
+        <div style="display:flex;gap:10px">
+          <input placeholder="you@proton.me" style="flex:1;min-width:0;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px;color:#E9E9ED;font-family:'JetBrains Mono',monospace;font-size:12px;outline:none" style-focus="border-color:#F7931A">
+          <button onClick="{{ subscribe }}" style="background:none;color:#F7931A;border:1px solid rgba(247,147,26,0.4);border-radius:10px;padding:0 16px;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:0.04em;cursor:pointer;transition:background .2s" style-hover="background:rgba(247,147,26,0.1)">{{ subLabel }}</button>
+        </div>
+      </div>
+
+      <div data-r style="margin-top:36px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#E9E9ED;line-height:1.7">51-53 Hatton Garden<br>London EC1N 8HN</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#F7931A;margin-top:8px">team@cypherpunk.io</div>
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 12px">X</span>
+          <span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 12px">LINKEDIN</span>
+          <span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 12px">SUBSTACK</span>
+          <span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 12px">TG</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#5C5E66;margin-top:18px;letter-spacing:0.06em">© 2026 CYPHERPUNK · £1.00 = 100,000,000 sats</div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isAccel }}">
+    <div id="cp-accel" class="cp-scroll" style="height:100%;overflow-y:auto;padding:26px 24px 104px" data-screen-label="Accelerator">
+      <div data-r style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#F7931A;letter-spacing:0.1em">01 /// ACCELERATOR</div>
+      <h2 data-r style="margin:12px 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;line-height:1;letter-spacing:-0.025em;color:#E9E9ED">12 Weeks to a Year</h2>
+      <p data-r style="margin:0 0 30px;font-family:'Space Grotesk';font-size:14px;line-height:1.5;color:#9A9CA4">Everything an early-stage Bitcoin startup needs to scale — compressed into one cohort.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:18px"><div style="font-family:'JetBrains Mono';font-size:20px;color:#F7931A;font-weight:700">01</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:18px;color:#E9E9ED;margin-top:8px">Funding</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px;line-height:1.55">Pre-seed cheque plus intros to Bitcoin-native funds and angels.</div></div>
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:18px"><div style="font-family:'JetBrains Mono';font-size:20px;color:#F7931A;font-weight:700">02</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:18px;color:#E9E9ED;margin-top:8px">Technical Resources</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px;line-height:1.55">Lightning, Liquid and signing infra, plus protocol engineers on call.</div></div>
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:18px"><div style="font-family:'JetBrains Mono';font-size:20px;color:#F7931A;font-weight:700">03</div><div style="font-family:'Space Grotesk';font-weight:600;font-size:18px;color:#E9E9ED;margin-top:8px">Policy Access</div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px;line-height:1.55">High-level access to regulators and the people shaping Bitcoin policy.</div></div>
+      </div>
+
+      <div data-r style="margin-top:32px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em;margin-bottom:8px">THE 12 WEEKS</div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;gap:16px;padding:13px 0;border-top:1px solid rgba(255,255,255,0.07)"><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A;min-width:56px">W 1–3</span><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Build &amp; validate</span></div>
+          <div style="display:flex;gap:16px;padding:13px 0;border-top:1px solid rgba(255,255,255,0.07)"><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A;min-width:56px">W 4–8</span><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Ship to first users</span></div>
+          <div style="display:flex;gap:16px;padding:13px 0;border-top:1px solid rgba(255,255,255,0.07)"><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A;min-width:56px">W 9–11</span><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Raise the round</span></div>
+          <div style="display:flex;gap:16px;padding:13px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07)"><span style="font-family:'JetBrains Mono';font-size:11px;color:#F7931A;min-width:56px">W 12</span><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Demo day</span></div>
+        </div>
+      </div>
+
+      <button onClick="{{ openApply }}" data-r style="margin-top:28px;width:100%;background:#F7931A;color:#0A0A0B;border:none;border-radius:12px;padding:18px;font-family:'Space Grotesk';font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.97)"><span>APPLY AS FOUNDER</span><span style="font-size:20px">→</span></button>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isCos }}">
+    <div id="cp-cos" class="cp-scroll" style="height:100%;overflow-y:auto;padding:26px 24px 104px" data-screen-label="Companies">
+      <div data-r style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#F7931A;letter-spacing:0.1em">02 /// OUR COMPANIES</div>
+      <h2 data-r style="margin:12px 0 26px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;line-height:1;letter-spacing:-0.025em;color:#E9E9ED">Portfolio</h2>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden"><div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.045) 0 12px,rgba(255,255,255,0.015) 12px 24px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px" style-active="transform:scale(1.08)"><span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">[ IMG · SOVRN ]</span></div></div><div style="padding:16px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;color:#E9E9ED">SOVRN</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">FOUNDER · A. EDWARDS</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px">Inheritance · non-custodial estate keys</div></div></div>
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden"><div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(0,255,163,0.045) 0 12px,rgba(255,255,255,0.015) 12px 24px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px" style-active="transform:scale(1.08)"><span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">[ IMG · SATPAY ]</span></div></div><div style="padding:16px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;color:#E9E9ED">SATPAY</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">FOUNDER · J. LOBOS</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px">Consumer fintech · Lightning-native wallet</div></div></div>
+        <div data-r style="border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden"><div style="overflow:hidden"><div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.045) 0 12px,rgba(255,255,255,0.015) 12px 24px);transition:transform .6s cubic-bezier(.2,.7,.2,1);display:flex;align-items:flex-end;padding:12px" style-active="transform:scale(1.08)"><span style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">[ IMG · ENCLAVE ]</span></div></div><div style="padding:16px"><div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Space Grotesk';font-weight:600;font-size:19px;color:#E9E9ED">ENCLAVE</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">FOUNDER · A. FILINI</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px">Cloud computing · sovereign compute nodes</div></div></div>
+      </div>
+
+      <div data-r style="margin-top:36px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em;margin-bottom:6px">VENTURE IDEAS</div>
+        <p style="margin:0 0 8px;font-family:'Space Grotesk';font-size:13px;color:#9A9CA4;line-height:1.5">Open problems we'll fund a founder to build.</p>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07)"><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Bitcoin-native payroll</span><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">OPEN</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07)"><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Self-custody for teams</span><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">OPEN</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07)"><span style="font-family:'Space Grotesk';font-size:14px;color:#E9E9ED">Lightning point-of-sale</span><span style="font-family:'JetBrains Mono';font-size:9px;color:#F7931A">OPEN</span></div>
+        </div>
+        <button onClick="{{ openApply }}" style="margin-top:20px;width:100%;background:none;color:#F7931A;border:1px solid rgba(247,147,26,0.4);border-radius:12px;padding:15px;font-family:'JetBrains Mono';font-weight:700;font-size:12px;letter-spacing:0.04em;cursor:pointer;transition:background .2s" style-hover="background:rgba(247,147,26,0.1)">PITCH AN IDEA →</button>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isHub }}">
+    <div id="cp-hub" class="cp-scroll" style="height:100%;overflow-y:auto;padding:26px 24px 104px" data-screen-label="Hub">
+      <div data-r style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#F7931A;letter-spacing:0.1em">03 /// THE HUB</div>
+      <h2 data-r style="margin:12px 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;line-height:1;letter-spacing:-0.025em;color:#E9E9ED">The Right Room</h2>
+      <p data-r style="margin:0 0 26px;font-family:'Space Grotesk';font-size:14px;line-height:1.5;color:#9A9CA4">Where Bitcoin's builders, investors, media and policymakers cross paths. The community is the product.</p>
+
+      <div data-r style="overflow:hidden;border-radius:14px;margin-bottom:24px"><div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.045) 0 12px,rgba(255,255,255,0.015) 12px 24px);display:flex;align-items:flex-end;padding:14px" style-active="transform:scale(1.06)"><span style="font-family:'JetBrains Mono';font-size:10px;color:#83858E">[ IMG · the co-working floor ]</span></div></div>
+
+      <div data-r style="display:grid;grid-template-columns:1fr 1fr;gap:2px 0">
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">Coffee &amp; tea</div>
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">Fast internet</div>
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">Conference rooms</div>
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">Key card access</div>
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">24/7 security</div>
+        <div style="padding:15px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:'JetBrains Mono';font-size:12px;color:#E9E9ED">Community events</div>
+      </div>
+
+      <div data-r style="margin-top:26px;border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:18px"><div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED">Meeting rooms</div><span style="font-family:'JetBrains Mono';font-size:9px;color:#00FFA3">● BOOKABLE</span></div><div style="font-family:'JetBrains Mono';font-size:11px;color:#83858E;margin-top:6px;line-height:1.55">Reserve by the hour, paid in sats. Key-card entry, 24/7.</div></div>
+
+      <button onClick="{{ openApply }}" data-r style="margin-top:24px;width:100%;background:#F7931A;color:#0A0A0B;border:none;border-radius:12px;padding:18px;font-family:'Space Grotesk';font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.97)"><span>BECOME A MEMBER</span><span style="font-size:20px">→</span></button>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isEvents }}">
+    <div id="cp-events" class="cp-scroll" style="height:100%;overflow-y:auto;padding:26px 24px 104px" data-screen-label="Events">
+      <div data-r style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#F7931A;letter-spacing:0.1em">04 /// EVENTS</div>
+      <h2 data-r style="margin:12px 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;line-height:1;letter-spacing:-0.025em;color:#E9E9ED">Gather with the Vanguard</h2>
+      <p data-r style="margin:0 0 26px;font-family:'Space Grotesk';font-size:14px;line-height:1.5;color:#9A9CA4">Deep-dives, hackathons and demo days with the brightest minds in Bitcoin.</p>
+
+      <div data-r style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6B6D75;letter-spacing:0.1em;margin-bottom:4px">FEBRUARY</div>
+      <div style="display:flex;flex-direction:column">
+        <div data-r style="display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-top:1px solid rgba(255,255,255,0.07)"><div style="text-align:center;min-width:40px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#F7931A;line-height:1">02</div><div style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">FEB</div></div><div style="flex:1"><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED;line-height:1.25">Pitching &amp; Raising Capital Panel</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:5px">CYPHERPUNK Offices · 18:30</div></div></div>
+        <div data-r style="display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-top:1px solid rgba(255,255,255,0.07)"><div style="text-align:center;min-width:40px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#F7931A;line-height:1">10</div><div style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">FEB</div></div><div style="flex:1"><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED;line-height:1.25">Building on Lightning Hackathon</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:5px">CYPHERPUNK Offices · All day</div></div></div>
+        <div data-r style="display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07)"><div style="text-align:center;min-width:40px"><div style="font-family:'Space Grotesk';font-weight:700;font-size:22px;color:#F7931A;line-height:1">19</div><div style="font-family:'JetBrains Mono';font-size:9px;color:#83858E">FEB</div></div><div style="flex:1"><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#E9E9ED;line-height:1.25">Women of Bitcoin Summit</div><div style="font-family:'JetBrains Mono';font-size:10px;color:#83858E;margin-top:5px">CYPHERPUNK Offices · 10:00</div></div></div>
+      </div>
+
+      <button onClick="{{ subscribe }}" data-r style="margin-top:26px;width:100%;background:none;color:#F7931A;border:1px solid rgba(247,147,26,0.4);border-radius:12px;padding:16px;font-family:'JetBrains Mono';font-weight:700;font-size:12px;letter-spacing:0.04em;cursor:pointer;transition:background .2s" style-hover="background:rgba(247,147,26,0.1)">{{ evtLabel }}</button>
+    </div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ applyOpen }}">
+  <div onClick="{{ closeApply }}" style="position:absolute;inset:0;z-index:70;background:rgba(4,4,5,0.72);backdrop-filter:blur(6px);display:flex;align-items:flex-end">
+    <div onClick="{{ sheetStop }}" class="cp-scroll" style="width:100%;max-height:92%;overflow-y:auto;background:#0C0C0E;border-top:1px solid rgba(247,147,26,0.35);border-radius:26px 26px 0 0;padding:20px 24px 30px;animation:cpSheet .4s cubic-bezier(.2,.8,.2,1) both">
+      <div style="display:flex;justify-content:center;margin-bottom:18px"><div style="width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,0.18)"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#F7931A;letter-spacing:0.1em">/// FOUNDER APPLICATION</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:23px;color:#E9E9ED;margin-top:8px;letter-spacing:-0.02em">Apply as Founder</div></div>
+        <button onClick="{{ closeApply }}" style="background:none;border:1px solid rgba(255,255,255,0.14);color:#E9E9ED;width:34px;height:34px;border-radius:10px;cursor:pointer;font-size:15px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.9)">✕</button>
+      </div>
+
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#83858E;letter-spacing:0.04em">FOUNDER NAME *</label><input placeholder="Satoshi Nakamoto" style="margin-top:8px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.11);border-radius:10px;padding:13px;color:#E9E9ED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none" style-focus="border-color:#F7931A"></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#83858E;letter-spacing:0.04em">STARTUP *</label><input placeholder="Working name" style="margin-top:8px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.11);border-radius:10px;padding:13px;color:#E9E9ED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none" style-focus="border-color:#F7931A"></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#83858E;letter-spacing:0.04em">STAGE</label><select style="margin-top:8px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.11);border-radius:10px;padding:13px;color:#E9E9ED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;appearance:none" style-focus="border-color:#F7931A"><option style="background:#0C0C0E">Idea</option><option style="background:#0C0C0E">Pre-seed</option><option style="background:#0C0C0E">Seed</option></select></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#83858E;letter-spacing:0.04em">WHAT ARE YOU BUILDING?</label><textarea rows="2" placeholder="one line, no marketing" style="margin-top:8px;width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.11);border-radius:10px;padding:13px;color:#E9E9ED;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;resize:none" style-focus="border-color:#F7931A"></textarea></div>
+      </div>
+
+      <button onClick="{{ submitApply }}" style="margin-top:22px;width:100%;background:{{ applyBtnBg }};color:#0A0A0B;border:none;border-radius:12px;padding:16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.02em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s" style-active="transform:scale(.96)"><span>{{ applyLabel }}</span></button>
+      <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#5C5E66;text-align:center;letter-spacing:0.03em;line-height:1.6">12-WEEK COHORT · LONDON · SATS-DENOMINATED</div>
+    </div>
+  </div>
+  </sc-if>
+
+  <div style="position:absolute;bottom:0;left:0;right:0;height:76px;background:rgba(10,10,11,0.86);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-around;padding:0 8px 16px;z-index:65">
+    <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.86)"><span style="width:15px;height:15px;border:1.6px solid {{ cHome }};border-radius:3px"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.05em;color:{{ cHome }}">HOME</span></button>
+    <button onClick="{{ goAccel }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.86)"><span style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid {{ cAccel }}"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.05em;color:{{ cAccel }}">ACCEL</span></button>
+    <button onClick="{{ goCos }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.86)"><span style="width:14px;height:14px;border:1.6px solid {{ cCos }};transform:rotate(45deg)"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.05em;color:{{ cCos }}">COS</span></button>
+    <button onClick="{{ goHub }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.86)"><span style="width:15px;height:15px;border:1.6px solid {{ cHub }};border-radius:50%"></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.05em;color:{{ cHub }}">HUB</span></button>
+    <button onClick="{{ goEvents }}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 3px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)" style-active="transform:scale(.86)"><span style="width:15px;height:11px;border:1.6px solid {{ cEvents }};border-radius:2px;position:relative"><span style="position:absolute;top:-4px;left:2px;width:1.6px;height:4px;background:{{ cEvents }}"></span><span style="position:absolute;top:-4px;right:2px;width:1.6px;height:4px;background:{{ cEvents }}"></span></span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.05em;color:{{ cEvents }}">EVENTS</span></button>
+  </div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:466,&quot;height&quot;:940},&quot;scrambleHero&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;liveData&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;magnetic&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { screen:'home', applyOpen:false, applyState:'idle', subState:'idle', evtState:'idle', gbp:88420, block:880341, mempool:1 };
+  HERO = 'THE BITCOIN START-UP ENGINE';
+  CH = '01#/<>[]{}=$*+X\u25B2\u25C6\u00B7';
+
+  componentDidMount(){
+    if(this.props.liveData!==false){ this.timer = setInterval(()=>this.tick(), 2400); }
+    this._tickIdx = 0; this.tickCycle = setInterval(()=>this.cycleTick(), 2600); setTimeout(()=>this.cycleTick(true), 60);
+    this._ensureGsap(()=>{ this.animScreen('home'); this.wireMagnetic(); });
+    if(this.props.scrambleHero!==false){ setTimeout(()=>this.scramble(), 120); }
+  }
+  componentDidUpdate(pp, ps){ if(ps.screen !== this.state.screen){ this._ensureGsap(()=>{ this.animScreen(this.state.screen); if(this.state.screen==='home') this.wireMagnetic(); }); } }
+  componentWillUnmount(){ clearInterval(this.timer); clearInterval(this.tickCycle); }
+
+  cycleTick(first){
+    const el = document.getElementById('cp-tick'); if(!el) return;
+    const s = this.state;
+    const pairs = [
+      'GBP/BTC <span style="color:#F7931A">\u00a3'+this.fmt(s.gbp)+'</span>',
+      'BLK HGT <span style="color:#E9E9ED">'+this.fmt(s.block)+'</span>',
+      'SAT/VB <span style="color:#E9E9ED">+'+s.mempool+'</span>',
+      'CYPHERPUNK <span style="color:#00FFA3">\u25cf LIVE</span>'
+    ];
+    if(first){ el.innerHTML = pairs[0]; return; }
+    this._tickIdx = (this._tickIdx + 1) % pairs.length;
+    el.style.opacity = '0';
+    setTimeout(()=>{ el.innerHTML = pairs[this._tickIdx]; el.style.opacity = '1'; }, 350);
+  }
+
+  _ensureGsap(cb){ if(window.gsap){ cb(); return; } let n=0; const t=setInterval(()=>{ if(window.gsap || n++>50){ clearInterval(t); if(window.gsap) cb(); } }, 40); }
+
+  animScreen(name){
+    const g = window.gsap; if(!g) return;
+    const el = document.getElementById('cp-'+name); if(!el) return;
+    const items = el.querySelectorAll('[data-r]'); if(!items.length) return;
+    try { g.killTweensOf(items);
+      g.fromTo(items, { opacity:0, y:20 }, { opacity:1, y:0, duration:0.6, ease:'power3.out', stagger:0.05, overwrite:true, clearProps:'transform,opacity' });
+    } catch(e){}
+  }
+
+  tick(){ this.setState(s=>({
+    gbp: Math.max(60000, s.gbp + Math.round((Math.random()-0.48)*140)),
+    block: s.block + (Math.random()<0.22?1:0),
+    mempool: Math.max(1, Math.min(180, s.mempool + Math.round((Math.random()-0.5)*4)))
+  })); }
+
+  scramble(){
+    const node = document.getElementById('cp-hero');
+    if(!node || node.dataset.cpRun === '1' || node.dataset.cpDone === '1') return;
+    node.dataset.cpRun = '1';
+    const t = this.HERO, c = this.CH, dur = 820, start = performance.now();
+    const step = (now)=>{
+      const p = Math.min(1, (now - start) / dur);
+      const rev = Math.floor(p * t.length); let o='';
+      for(let i=0;i<t.length;i++){ const ch=t[i]; o += (ch===' '||i<rev) ? ch : c[Math.floor(Math.random()*c.length)]; }
+      node.textContent = o;
+      if(p < 1){ requestAnimationFrame(step); }
+      else { node.textContent = t; node.dataset.cpDone = '1'; node.dataset.cpRun = '0'; }
+    };
+    requestAnimationFrame(step);
+  }
+
+  wireMagnetic(){ if(this.props.magnetic===false) return; const node = document.getElementById('cp-cta'); const g = window.gsap; if(!node || !g || node._wired) return; node._wired = true;
+    const xTo = g.quickTo(node,'x',{ duration:0.45, ease:'power3' });
+    const yTo = g.quickTo(node,'y',{ duration:0.45, ease:'power3' });
+    const sTo = g.quickTo(node,'scale',{ duration:0.3, ease:'power3' });
+    node.onpointermove = (e)=>{ if(e.pointerType==='touch') return; const r=node.getBoundingClientRect(); xTo((e.clientX-r.left-r.width/2)*0.35); yTo((e.clientY-r.top-r.height/2)*0.55); };
+    node.onpointerenter = ()=>{ sTo(1.03); };
+    node.onpointerleave = ()=>{ xTo(0); yTo(0); sTo(1); };
+    node.onpointerdown = ()=>{ sTo(0.96); };
+    node.onpointerup = ()=>{ sTo(1.03); };
+  }
+
+  setScreen = (name)=> this.setState({ screen:name });
+  openApply = ()=> this.setState({ applyOpen:true, applyState:'idle' });
+  closeApply = ()=> this.setState({ applyOpen:false });
+  sheetStop = (e)=>{ if(e&&e.stopPropagation) e.stopPropagation(); };
+  submitApply = (e)=>{ if(e&&e.preventDefault) e.preventDefault(); if(this.state.applyState!=='idle') return; this.setState({ applyState:'sending' }); setTimeout(()=>this.setState({ applyState:'sent' }), 1500); };
+  subscribe = ()=>{ if(this.state.subState==='idle'){ this.setState({ subState:'done' }); } this.setState({ evtState:'done' }); };
+  fmt(n){ return n.toLocaleString('en-US'); }
+
+  renderVals(){
+    const s = this.state;
+    const active = '#F7931A', idle = '#63656D';
+    const applyLabel = s.applyState==='sending' ? 'TRANSMITTING\u2026' : s.applyState==='sent' ? 'APPLICATION RECEIVED \u2713' : 'SUBMIT APPLICATION';
+    return {
+      isHome:s.screen==='home', isAccel:s.screen==='accel', isCos:s.screen==='cos', isHub:s.screen==='hub', isEvents:s.screen==='events',
+      goHome:()=>this.setScreen('home'), goAccel:()=>this.setScreen('accel'), goCos:()=>this.setScreen('cos'), goHub:()=>this.setScreen('hub'), goEvents:()=>this.setScreen('events'),
+      openApply:this.openApply, closeApply:this.closeApply, submitApply:this.submitApply, sheetStop:this.sheetStop, subscribe:this.subscribe,
+      applyOpen:s.applyOpen, applyLabel, applyBtnBg: s.applyState==='sent' ? '#00FFA3' : '#F7931A',
+      subLabel: s.subState==='done' ? '\u2713' : 'SUBSCRIBE',
+      evtLabel: s.evtState==='done' ? 'ADDED TO CALENDAR \u2713' : 'UPCOMING EVENTS →',
+      gbp:this.fmt(s.gbp), block:this.fmt(s.block), mempool:String(s.mempool),
+      cHome:s.screen==='home'?active:idle, cAccel:s.screen==='accel'?active:idle, cCos:s.screen==='cos'?active:idle, cHub:s.screen==='hub'?active:idle, cEvents:s.screen==='events'?active:idle
+    };
+  }
+}
+</script>
+</body>
+</html>
