@@ -12,6 +12,7 @@ relevant file and note the change rather than deleting history.
 | [`03-app-status.md`](./03-app-status.md) | What's actually built and live in this repo vs. still a placeholder |
 | [`04-automation-status.md`](./04-automation-status.md) | Task list, scheduler, the Fortress dashboard, and what automation is/isn't wired up |
 | [`05-open-decisions.md`](./05-open-decisions.md) | Questions asked and not yet answered — read this before assuming something is settled |
+| [`06-seo-ai-citation-plan.md`](./06-seo-ai-citation-plan.md) | SEO + AI-citation (GEO/AEO) plan — keyword tracks, on-page checklist, how it folds into the 24-week campaign |
 
 ## Live links (private artifacts — ask to be added as a viewer)
 

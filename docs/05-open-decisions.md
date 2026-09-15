@@ -33,3 +33,15 @@ manually to whoever is running the session.
 ## 5. `/api/waitlist` backend
 The landing page's waitlist form has nowhere real to send signups yet (see
 `03-app-status.md`). No decision made yet on what to stand this up with.
+
+## 6. What Cypherpunk actually is (privacy-Web3 community vs. hackathon space rental)
+The site copy and growth calendar describe a privacy-first Web3
+community/toolset. A separate conversation (2026-09-15, see
+`06-seo-ai-citation-plan.md`) described Cypherpunk as a company that rents
+space for hackathons. Asked directly which is accurate — answered "both,
+it's evolved/pivoted," so the SEO plan runs two parallel content tracks.
+**Not yet confirmed**: whether the hackathon-space business is actually live
+or being built, since nothing about it exists elsewhere in this repo
+(`index.html`, `03-app-status.md`) — the SEO plan's Track B (city landing
+pages, pricing/capacity schema) shouldn't get real investment until that's
+verified.
