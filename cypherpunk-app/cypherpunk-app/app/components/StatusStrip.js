@@ -82,15 +82,12 @@ export default function StatusStrip() {
   return (
     <div className="status-strip">
       <div className="status-row">
-        <span>9:41</span>
+        <span className="status-brand">CYPHERPUNK</span>
         <span className="status-satlink">
           <span className="status-dot" aria-hidden="true">
             &#9679;
           </span>
           SAT-LINK
-          <span className="status-battery" aria-hidden="true">
-            <span />
-          </span>
         </span>
       </div>
       <div className="status-tick" ref={elRef} style={{ opacity: visible ? 1 : 0 }}>
@@ -109,11 +106,16 @@ export default function StatusStrip() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 15px 24px 8px;
+          padding: 15px clamp(20px, 4vw, 40px) 8px;
           font-family: var(--font-mono);
           font-size: 13px;
           color: var(--text);
           font-weight: 500;
+        }
+        .status-brand {
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          color: var(--text-faint);
         }
         .status-satlink {
           display: flex;
@@ -125,21 +127,6 @@ export default function StatusStrip() {
         .status-dot {
           color: var(--good);
           font-size: 8px;
-        }
-        .status-battery {
-          display: inline-block;
-          width: 22px;
-          height: 11px;
-          border: 1px solid var(--text-faint);
-          border-radius: 3px;
-          position: relative;
-        }
-        .status-battery span {
-          position: absolute;
-          inset: 1.5px;
-          right: 6px;
-          background: var(--good);
-          border-radius: 1px;
         }
         .status-tick {
           height: 28px;

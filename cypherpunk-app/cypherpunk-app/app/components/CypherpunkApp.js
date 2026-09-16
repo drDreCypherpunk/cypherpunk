@@ -470,7 +470,7 @@ export default function CypherpunkApp() {
                       cohort.
                     </p>
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                    <div className="feature-list">
                       {[
                         ["01", "Funding", "Pre-seed cheque plus intros to Bitcoin-native funds and angels."],
                         ["02", "Technical Resources", "Lightning, Liquid and signing infra, plus protocol engineers on call."],
@@ -523,7 +523,7 @@ export default function CypherpunkApp() {
                       Portfolio
                     </h2>
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    <div className="portfolio-list">
                       {PORTFOLIO.map((c) => (
                         <div key={c.name} data-r className="portfolio-card tactile-lift">
                           <div className="portfolio-img">
@@ -766,6 +766,7 @@ export default function CypherpunkApp() {
           display: flex;
           flex-direction: column;
           position: relative;
+          transition: max-width 0.2s ease;
         }
         .cp-content {
           flex: 1;
@@ -790,7 +791,7 @@ export default function CypherpunkApp() {
         }
         .cp-screen {
           height: 100%;
-          padding: 26px 24px 40px;
+          padding: clamp(22px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(32px, 5vw, 56px);
         }
         .cp-scroll {
           overflow-y: auto;
@@ -812,7 +813,7 @@ export default function CypherpunkApp() {
           margin: 0;
           font-family: var(--font-sans);
           font-weight: 600;
-          font-size: clamp(32px, 8vw, 42px);
+          font-size: clamp(32px, 6vw, 64px);
           line-height: 0.98;
           letter-spacing: -0.03em;
           color: var(--text);
@@ -821,14 +822,14 @@ export default function CypherpunkApp() {
         }
         .hero-lede {
           margin: 20px 0 0;
-          font-size: 15px;
+          font-size: clamp(15px, 1.4vw, 17px);
           line-height: 1.5;
           color: var(--text-dim);
-          max-width: 320px;
+          max-width: 420px;
         }
         .lede-block {
           margin: 40px 0 0;
-          font-size: 20px;
+          font-size: clamp(18px, 2.2vw, 24px);
           line-height: 1.4;
           color: var(--text);
           letter-spacing: -0.01em;
@@ -1026,7 +1027,7 @@ export default function CypherpunkApp() {
         .screen-h2 {
           margin: 12px 0 8px;
           font-weight: 600;
-          font-size: clamp(28px, 6vw, 34px);
+          font-size: clamp(28px, 4.5vw, 44px);
           line-height: 1;
           letter-spacing: -0.025em;
           color: var(--text);
@@ -1036,6 +1037,11 @@ export default function CypherpunkApp() {
           font-size: 14px;
           line-height: 1.5;
           color: var(--text-dim);
+        }
+        .feature-list {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
         }
         .feature-card {
           border: 1px solid var(--border);
@@ -1073,10 +1079,17 @@ export default function CypherpunkApp() {
           color: var(--accent);
           min-width: 56px;
         }
+        .portfolio-list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
         .portfolio-card {
           border: 1px solid var(--border);
           border-radius: 14px;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
         }
         .portfolio-img {
           aspect-ratio: 16 / 9;
@@ -1293,6 +1306,70 @@ export default function CypherpunkApp() {
         }
         @media (max-width: 400px) {
           .cp-screen { padding: 24px 18px 36px; }
+        }
+
+        /* Desktop/computer-friendly restructuring: the phone-simulator
+           column widens into a real page layout, the bottom tab bar
+           becomes a top nav, and list content reflows into grids so
+           space on a wide viewport is actually used. */
+        @media (min-width: 900px) {
+          .cp-shell {
+            max-width: 1120px;
+          }
+          .cp-content {
+            order: 2;
+          }
+          .cp-nav {
+            order: 1;
+            position: static;
+            background: transparent;
+            backdrop-filter: none;
+            border-top: none;
+            border-bottom: 1px solid var(--border-soft);
+            justify-content: center;
+            gap: 48px;
+            padding: 16px clamp(24px, 4vw, 40px) 18px;
+          }
+          .cp-nav-btn {
+            flex-direction: row;
+            gap: 10px;
+            padding: 6px 4px;
+          }
+          .cp-nav-btn span {
+            font-size: 11px !important;
+            letter-spacing: 0.06em !important;
+          }
+          .cp-screen {
+            max-width: 920px;
+            margin: 0 auto;
+          }
+          .feature-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+          }
+          .portfolio-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+          .amenities-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .cp-modal-backdrop {
+            align-items: center;
+          }
+          .cp-sheet {
+            max-width: 520px;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+          }
+          .cp-sheet-handle {
+            display: none;
+          }
+          .cp-sheet-draghandle {
+            cursor: default;
+          }
         }
       `}</style>
     </>
