@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #050506; }
+    .post {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background:
+        radial-gradient(90% 60% at 50% 0%, rgba(247,147,26,0.10) 0%, rgba(247,147,26,0) 55%),
+        radial-gradient(120% 60% at 50% -10%, #131215 0%, #050506 55%);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: #e9e9ed;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  </style>
+</helmet>
+
+<div class="post">
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:56px 64px 0;">
+    <div class="mono" style="font-size:16px; font-weight:600; letter-spacing:0.14em;">CYPHERPUNK</div>
+    <div style="display:flex; align-items:center; gap:8px;" class="mono">
+      <span style="width:7px; height:7px; border-radius:50%; background:#00ffa3; display:inline-block;"></span>
+      <span style="font-size:12px; letter-spacing:0.08em; color:#83858e;">LIVE</span>
+    </div>
+  </div>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 64px;">
+    <div class="mono" style="font-size:13px; font-weight:600; letter-spacing:0.12em; color:#f7931a; margin-bottom:26px;">
+      /// APPLICATIONS OPEN
+    </div>
+    <h1 style="margin:0; font-weight:700; font-size:80px; line-height:0.98; letter-spacing:-0.03em; text-transform:uppercase;">
+      The Bitcoin<br />Start-Up<br />Engine
+    </h1>
+    <p style="margin:30px 0 0; font-size:21px; line-height:1.55; color:#9a9ca4; max-width:760px;">
+      We invest in and build the next generation of Bitcoin unicorns. 12 weeks. London.
+    </p>
+
+    <div style="margin-top:44px;">
+      <div style="background:#f7931a; color:#0a0a0b; font-weight:700; font-size:19px; border-radius:14px; padding:20px 30px; display:inline-flex; align-items:center; gap:12px;">
+        APPLY AS FOUNDER
+        <span style="font-size:22px;">&rarr;</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:0 64px 56px;">
+    <div class="mono" style="font-size:11px; letter-spacing:0.09em; color:#6b6d75;">
+      BACKED BY FULGUR VENTURES &middot; INITIAL CAPITAL
+    </div>
+    <div class="mono" style="font-size:11px; letter-spacing:0.09em; color:#6b6d75;">cypherpunk.io</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

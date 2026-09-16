@@ -1,0 +1,15 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1200, "h": 630 },
+    { "file": "SocialSquare.dc.html", "x": 1320, "y": 0, "w": 1080, "h": 1080 },
+    { "file": "PortfolioSpotlight.dc.html", "x": 2520, "y": 0, "w": 1080, "h": 1080 },
+    { "file": "TwitterHeader.dc.html", "x": 0, "y": 1230, "w": 1500, "h": 500 }
+  ],
+  "annotations": [
+    { "id": "note-web-banner", "x": 0, "y": -90, "w": 400, "text": "Web / OG banner — 1200x630, homepage hero + link-share preview" },
+    { "id": "note-social-square", "x": 1320, "y": -90, "w": 400, "text": "Social post — 1080x1080, Instagram/LinkedIn/X feed" },
+    { "id": "note-portfolio", "x": 2520, "y": -90, "w": 420, "text": "Portfolio spotlight template — reusable per company (SOVRN shown), Portfolio/Alumni content pillar" },
+    { "id": "note-twitter-header", "x": 0, "y": 1140, "w": 400, "text": "X/Twitter profile header — 1500x500, left third kept clear for the avatar" }
+  ],
+  "launch": { "view": "canvas" }
+}

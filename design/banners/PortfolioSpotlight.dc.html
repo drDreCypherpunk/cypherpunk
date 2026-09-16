@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #050506; }
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background: #050506;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: #e9e9ed;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .plate {
+      flex: 1;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 14px, rgba(255,255,255,0.015) 14px 28px);
+      display: flex;
+      align-items: flex-end;
+      padding: 28px 34px;
+    }
+  </style>
+</helmet>
+
+<div class="card">
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:48px 56px 32px;">
+    <div class="mono" style="font-size:13px; font-weight:600; letter-spacing:0.12em; color:#f7931a;">
+      /// OUR COMPANIES
+    </div>
+    <div class="mono" style="font-size:12px; letter-spacing:0.1em; color:#5c5e66;">CYPHERPUNK PORTFOLIO</div>
+  </div>
+
+  <div class="plate">
+    <div class="mono" style="font-size:12px; letter-spacing:0.08em; color:#83858e;">[ IMG &middot; SOVRN ]</div>
+  </div>
+
+  <div style="padding:40px 56px 56px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:10px;">
+      <h1 style="margin:0; font-weight:700; font-size:56px; letter-spacing:-0.02em;">SOVRN</h1>
+      <div class="mono" style="font-size:12px; color:#f7931a; white-space:nowrap;">FOUNDER &middot; A. EDWARDS</div>
+    </div>
+    <p style="margin:0 0 30px; font-size:18px; color:#9a9ca4; line-height:1.5;">
+      Inheritance &middot; non-custodial estate keys
+    </p>
+    <div style="height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); margin-bottom:26px;"></div>
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <div class="mono" style="font-size:11px; letter-spacing:0.09em; color:#6b6d75;">
+        BUILT IN THE CYPHERPUNK COHORT
+      </div>
+      <div class="mono" style="font-size:11px; letter-spacing:0.09em; color:#6b6d75;">cypherpunk.io</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

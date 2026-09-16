@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #050506; }
+    .header {
+      width: 1500px;
+      height: 500px;
+      position: relative;
+      background:
+        radial-gradient(60% 90% at 88% 30%, rgba(247,147,26,0.12) 0%, rgba(247,147,26,0) 60%),
+        radial-gradient(120% 60% at 50% -10%, #131215 0%, #050506 55%);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      color: #e9e9ed;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  </style>
+</helmet>
+
+<div class="header">
+  <!-- Left third intentionally kept clear: X/Twitter overlays the profile
+       photo on the bottom-left corner of a header banner. -->
+  <div style="width:62%; padding-right:70px; text-align:right; display:flex; flex-direction:column; align-items:flex-end;">
+    <div class="mono" style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#f7931a; margin-bottom:16px;">
+      /// THE BITCOIN START-UP ENGINE
+    </div>
+    <h1 style="margin:0; font-weight:700; font-size:46px; line-height:1.05; letter-spacing:-0.02em; text-transform:uppercase;">
+      12 weeks to a year.
+    </h1>
+    <p style="margin:16px 0 0; font-size:16px; color:#9a9ca4;">
+      Applications open now &middot; London &middot; cypherpunk.io
+    </p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
