@@ -73,8 +73,13 @@ shared Apply/Pitch/Become-a-member modal. See `design/README.md` for the
 few deliberate departures (no phone bezel, real Bitcoin data instead of
 simulated, honest success states instead of faked ones).
 
-**Still genuinely open**: the Launch Kit, Growth Calendar, weekly
-rhythm/content pillars, and SEO plan were all built around "privacy-first
-Web3 community" and have **not** been updated for the accelerator
-positioning — they need a rewrite, not a tweak, and that work hasn't
-started.
+**Update 2026-09-16**: `01-launch-plan.md` and `02-growth-calendar.md` have
+been rewritten for the accelerator positioning (funnel is now
+awareness → application → accepted founder, calendar maps to one 24-week
+cohort cycle: 8-week application window → 12-week program → Demo Day, not a
+flat community ramp). **Still open**: the Launch Kit and Growth Calendar
+*artifacts* linked from `README.md` still hold the old community-funnel
+copy/numbers and haven't been rebuilt to match; `06-seo-ai-citation-plan.md`
+still runs its old two-track (privacy-Web3 / hackathon-space) plan; the
+session's 24 tracked week-tasks still carry the old community-launch titles
+and visit/lead targets. None of that has been touched yet.
