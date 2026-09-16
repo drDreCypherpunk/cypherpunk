@@ -796,6 +796,13 @@ export default function CypherpunkApp() {
           overflow-y: auto;
           overscroll-behavior-y: contain;
           -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .cp-scroll::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
         }
         .hr {
           height: 1px;
@@ -1207,11 +1214,18 @@ export default function CypherpunkApp() {
           max-width: 460px;
           max-height: 92vh;
           overflow-y: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
           background: var(--surface);
           border-top: 1px solid var(--accent-border);
           border-radius: 26px 26px 0 0;
           padding: 20px 24px 30px;
           box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .cp-sheet::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
         }
         .cp-sheet-draghandle {
           cursor: grab;
